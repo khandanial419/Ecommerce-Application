@@ -1,19 +1,19 @@
-import React from 'react'
-
+import React, { Suspense } from 'react';
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Home from './Screen/Pages/Home/Home';
-import ContactUs from './Screen/Pages/ContactUs/ContactUs';
-import About from './Screen/Pages/About/About';
-import Navbar from './Screen/Navigations/Navbar/Navbar';
-import Login from './Screen/Pages/Login/Login';
-import Signup from './Screen/Pages/Signup/Signup';
-import Error from './Screen/Pages/Error';
+const Home = React.lazy(() => import('./Screen/Pages/Home/Home'));
+const ContactUs = React.lazy(() => import('./Screen/Pages/ContactUs/ContactUs'));
+const About = React.lazy(() => import('./Screen/Pages/About/About'));
+const Login = React.lazy(() => import('./Screen/Pages/Login/Login'));
+const Signup = React.lazy(() => import('./Screen/Pages/Signup/Signup'));
+const Navbar = React.lazy(() => import('./Screen/Navigations/Navbar/Navbar'));
  const App = () => {
   return (
    <>
    <BrowserRouter future={{ v7_startTransition: true }}>
     <Navbar/>
-   <Routes>
+    <Suspense fallback={Loading}>
+   <Routes  >
     <Route path='/' element={<Home/> } />
     <Route path='/ContactUs' element={<ContactUs/> } />
     <Route path='/About' element={<About/> } />
@@ -21,9 +21,23 @@ import Error from './Screen/Pages/Error';
     <Route path='/signup' element={<Signup/> } />
     <Route path="*" element={<Error />} />
    </Routes>
+   </Suspense>
    </BrowserRouter>
    </>
 
   )
 }
+const Loading = (
+  <>
+    <div className="h-screen w-full bg-white flex  justify-center items-center">
+      <div>
+        <AiOutlineLoading3Quarters
+          className="animate-spin h-10 ml-5"
+          color="#5161ce"
+          size={50}
+        />
+      </div>
+    </div>
+  </>
+);
 export default App;

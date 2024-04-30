@@ -18,7 +18,7 @@ const Navbar = () => {
              <NavLink to="/" className="text-black-900 hover:bg-black-700 hover:text-gray-500 hover:underline hover:text-white px-3 py-2 rounded-md text-sm font-bold">Home</NavLink>
              <NavLink to="/about" className="text-black-900 hover:bg-black-700 hover:text-gray-500 hover:underline hover:text-white px-3 py-2 rounded-md text-sm font-bold">About</NavLink>
              <NavLink to="/ContactUs" className="text-black-900 hover:bg-black-700 hover:text-gray-500 hover:underline hover:text-white px-3 py-2 rounded-md text-sm font-bold">Contact Us</NavLink>
-             <NavLink to="/service" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Services</NavLink>
+             {/* <NavLink to="/service" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Services</NavLink> */}
              <NavLink to="/about" className="text-black-900 hover:bg-black-700 hover:text-gray-500 hover:text-white hover:underline px-3 py-2 rounded-md text-sm font-bold">About</NavLink>
              <NavLink to="/ContactUs" className="text-black-900 hover:bg-black-700 hover:text-gray-500 hover:text-white hover:underline px-3 py-2 rounded-md text-sm font-bold">Contact Us</NavLink>
             </div>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
          <NavLink to="/home" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Home</NavLink>
          <NavLink to="/about" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">About</NavLink>
-         <NavLink to="/service" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Services</NavLink>
+         {/* <NavLink to="/service" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Services</NavLink> */}
          <NavLink to="/Contactus" className="text-black-900 hover:bg-black-700 hover:text-white block px-3 py-2 rounded-md text-base font-bold">Contact</NavLink>
         </div>
       </div>
