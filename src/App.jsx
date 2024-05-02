@@ -4,7 +4,7 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 const Home = React.lazy(() => import('./Screen/Pages/Home/Home'));
 const ContactUs = React.lazy(() => import('./Screen/Pages/Contactus/Contactus'));
 const About = React.lazy(() => import('./Screen/Pages/About/About'));
-const Login = React.lazy(() => import('./Screen/Pages/Login/Login'));
+const Login = React.lazy(() => import('./Screen/Pages/Auth/Login'));
 const Signup = React.lazy(() => import('./Screen/Pages/Signup/Signup'));
 const Navbar = React.lazy(() => import('./Screen/Navigations/Navbar/Navbar'));
 const Error=React.lazy(()=>import('./Screen/Pages/Error'))
