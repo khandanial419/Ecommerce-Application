@@ -7,7 +7,7 @@ import { HeaderCardData } from "../../utils/data";
 
 const HomeCards = () => {
   return (
-    <div className="p-4 bg-[#0494b8]  mt-5 rounded">
+    <div className="p-4 bg-black mt-5 rounded">
       {/* First row with inline text */}
       <div className="flex items-center justify-center mb-8 ">
         <div className="border-b border-white-400 w-16 mr-4"></div>
