@@ -32,11 +32,11 @@ const Signup = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="w-full max-w-xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-blue-500">Sign Up</h2>
+        <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Sign Up</h2>
         <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500 bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type="email"
               placeholder="Email"
               value={email}
@@ -46,7 +46,7 @@ const Signup = () => {
           </div>
           <div className="relative mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-blue-500 bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
@@ -63,7 +63,7 @@ const Signup = () => {
           </div>
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500 bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type="password"
               placeholder="Confirm Password"
               value={confirmPassword}
@@ -72,13 +72,13 @@ const Signup = () => {
             />
           </div>
           <button
-            className="w-[500] bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600"
+            className="w-[500] bg-[#0494b8] text-white rounded-full px-4 py-2 hover:bg-[#0494b8]"
             type="submit"
           >
             Sign Up
           </button>
         </form>
-        <p className="text-gray-500 text-sm mt-4">Already a member? <button className="text-blue-500" onClick={handleTogglePage}>Log In</button></p>
+        <p className="text-gray-500 text-sm mt-4">Already a member? <button className="text-[#0494b8]" onClick={handleTogglePage}>Log In</button></p>
       </div>
     </div>
   );

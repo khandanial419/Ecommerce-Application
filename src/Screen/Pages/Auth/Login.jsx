@@ -31,12 +31,12 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="w-full max-w-xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-4 text-blue-500">Login</h2>
+        <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Login</h2>
         <p className="text-lg text-gray-700 mb-10 text-gray-500">Welcome back!</p>
         <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-blue-500 bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type="email"
               placeholder="Email"
               value={email}
@@ -46,7 +46,7 @@ const Login = () => {
           </div>
           <div className="relative mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-blue-500 bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
@@ -61,14 +61,14 @@ const Login = () => {
               {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
             </button>
           </div>
-          <a href="#" className="text-blue-500 mb-4 block">Forgot Password?</a>
+          <a href="#" className="text-[#0494b8] mb-4 block">Forgot Password?</a>
           <button
-            className="w-[500] bg-blue-500 text-white rounded-full px-4 py-2 hover:bg-blue-600"
+            className="w-[500] bg-[#0494b8] text-white rounded-full px-4 py-2 hover:bg-[#0494b8]"
             type="submit"
           >
             Login
           </button>
-          <p className="mt-4 text-gray-500">Not a member? <button onClick={handleTogglePage} className="text-blue-500">Sign Up</button></p>
+          <p className="mt-4 text-gray-500">Not a member? <button onClick={handleTogglePage} className="text-[#0494b8]">Sign Up</button></p>
         </form>
       </div>
     </div>

@@ -10,6 +10,10 @@ const Signup = React.lazy(() => import('./Screen/Pages/Auth/Singup'));
 const Product = React.lazy(() => import('./Screen/Pages/Product/Product'));
 const Navbar = React.lazy(() => import('./Screen/Navigations/Navbar/Navbar'));
 const Error=React.lazy(()=>import('./Screen/Pages/Error'))
+const Men = React.lazy(() => import('./Screen/Component/Selection/Men')); // Add this line
+const Women = React.lazy(() => import('./Screen/Component/Selection/Women')); // Add this line
+const BabyDoll = React.lazy(() => import('./Screen/Component/Selection/BabyDoll')); // Add this line
+const BabyPrince = React.lazy(() => import('./Screen/Component/Selection/BabyPrince')); // Add this line
  const App = () => {
   return (
    <>
@@ -23,7 +27,12 @@ const Error=React.lazy(()=>import('./Screen/Pages/Error'))
     <Route path='/login' element={<Login/> } />
     <Route path='/signup' element={<Signup/> } />
     <Route path='/product' element={<Product/> } />
+    <Route path='/men' element={<Men />} /> {/* Add this route */}
+    <Route path='/women' element={<Women />} /> {/* Add this route */}
+    <Route path='/baby-doll' element={<BabyDoll />} /> {/* Add this route */}
+    <Route path='/baby-prince' element={<BabyPrince />} /> {/* Add this route */}
     <Route path="*" element={<Error />} />
+   
    </Routes>
    </Suspense>
    <Footer/>

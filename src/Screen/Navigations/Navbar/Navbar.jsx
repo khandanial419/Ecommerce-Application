@@ -45,7 +45,13 @@ const Navbar = () => {
       <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 text-center pt-2 pb-3 space-y-1 sm:px-3">
           <NavLink to="/" className="text-[#0494b8] hover:bg-[#0494b8] hover:text-white block px-3 py-2 rounded-md text-base font-bold">Home</NavLink>
-          <NavLink to="/product" className="text-[#0494b8] hover:bg-[#0494b8] hover:text-white block px-3 py-2 rounded-md text-base font-bold">Products</NavLink>
+          <NavLink to="/product" className="text-[#0494b8] hover:bg-[#0494b8] hover:text-white block px-3 py-2 rounded-md text-base font-bold">Products
+           <ul className='text-white bg-red'>
+            <li>product1</li>
+            <li>product1</li>
+            <li>product1</li>
+           </ul>
+          </NavLink>
           <NavLink to="/services" className="text-[#0494b8] hover:bg-[#0494b8] hover:text-white block px-3 py-2 rounded-md text-base font-bold">Services</NavLink>
           <NavLink to="/about" className="text-[#0494b8] hover:bg-[#0494b8] hover:text-white block px-3 py-2 rounded-md text-base font-bold">About Us</NavLink>
           <NavLink to="/contactus" className="text-[#0494b8] hover:bg-[#0494b8] hover:text-white block px-3 py-2 rounded-md text-base font-bold">Contact Us</NavLink>

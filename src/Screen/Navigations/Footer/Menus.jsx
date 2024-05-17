@@ -1,7 +1,7 @@
 export const PRODUCTS = [
-    { name: "Drag And Drop", link: "#" },
-    { name: "Visual Studio X", link: "#" },
-    { name: "Easy Content", link: "#" },
+    { name: "product 1", link: "#" },
+    { name: "product 2", link: "#" },
+    { name: "product 3", link: "#" },
   ];
   export const RESOURCES = [
     { name: "Industries and tools", link: "#" },

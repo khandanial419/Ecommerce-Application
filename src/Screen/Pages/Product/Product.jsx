@@ -2,7 +2,16 @@ import React from 'react';
 
 const Product = () => {
   return (
-    <div className="container mx-auto py-8">
+    <>
+    this is a product page
+    </>
+  )
+}
+
+export default Product;
+
+
+{/* <div className="container mx-auto py-8">
       <div className="max-w-screen-lg mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="max-w-md">
@@ -26,10 +35,4 @@ const Product = () => {
           </div>rfc
           
       </div>
-    </div>
-  )
-}
-
-export default Product;
-
-
+    </div> */}
