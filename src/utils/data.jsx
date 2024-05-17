@@ -18,6 +18,7 @@ export const cardsData = [
     img2Url:
       "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
     Icons: <ManIcon />,
+    path: '/men'
   },
   {
     title: "Go To Fashion",
@@ -27,6 +28,7 @@ export const cardsData = [
     img2Url:
       "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
     Icons: <WomanIcon />,
+    path: '/women'
   },
 
   {
@@ -37,6 +39,7 @@ export const cardsData = [
     img2Url:
       "https://images.unsplash.com/photo-1559659133-8781d8f3b673?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
     Icons: <ChildCareIcon />,
+    path: '/baby-doll'
   },
   {
     title: "Go To Fashion",
@@ -46,6 +49,7 @@ export const cardsData = [
     img2Url:
       "https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
     Icons: <ChildCareIcon />,
+    path: '/baby-prince'
   },
 ];
 
