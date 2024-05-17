@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Add these styles to your Tailwind CSS file */
+
+.slick-prev, .slick-next {
+    @apply w-12 h-12 z-10;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    @apply text-4xl text-black;
+  }
+  
+  .slick-prev:hover:before, .slick-next:hover:before {
+    @apply text-gray-700;
+  }
+  
+
