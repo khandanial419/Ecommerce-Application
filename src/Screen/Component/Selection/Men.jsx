@@ -1,11 +1,12 @@
-import React from 'react';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CarisoulData } from "../../../utils/data";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Men = () => {
   const settings = {
@@ -21,50 +22,47 @@ const Men = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          initialSlide: 1
-        }
-      }
+          initialSlide: 1,
+          arrows: false,
+        },
+      },
     ],
-    appendDots: dots => (
-      <div className="bg-white rounded-lg p-2">
-        <ul> {dots} </ul>
-      </div>
-    ),
-    customPaging: i => (
-      <div className="w-8 h-8 text-black border border-white flex items-center justify-center">
-        {i + 1}
-      </div>
-    )
+    prevArrow: <IoIosArrowBack className="slick-arrow" />,
+    nextArrow: <IoIosArrowForward className="slick-arrow" />,
   };
 
   return (
-    <div className='w-full bg-white'>
+    <div className="w-full bg-white">
       <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-       <h1 className="text-4xl font-bold text-center text-[#0494b8] mb-8">This is Men Clothes</h1>
-        <div className='w-3/4 m-auto'>
+        <h1 className="text-4xl font-bold text-center text-[#0494b8] mb-8">
+          This is Men Clothes
+        </h1>
+        <div className="w-3/4 m-auto">
           <div className="mt-20">
             <Slider {...settings} className="slick-slider">
               {CarisoulData.map((d) => (
-                <div 
-                  key={d.name} 
+                <div
+                  key={d.name}
                   className="relative bg-white text-black rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl mx-2"
                 >
-                  <div className='h-72 flex justify-center items-center overflow-hidden bg-white'>
-                    <img src={d.img} alt={d.name} className="object-cover h-full w-full"/>
-                  </div>
+                  <img
+                    src={d.img}
+                    alt={d.name}
+                    className="object-cover h-72 w-full"
+                  />
                   <div className="absolute inset-0 bg-[#0494b8] bg-opacity-0 hover:bg-opacity-30 transition-opacity"></div>
                   <div className="flex flex-col items-center justify-center gap-4 p-4 z-10 relative">
-                    <p className="text-xl font-semibold text-[#0494b8]">{d.name}</p>
-                    <p className="text-center">{d.review}</p>
-                    <button className='bg-[#0494b8] text-white text-lg px-6 py-1 rounded-xl'>Add to Cart</button>
+                    <p className="text-xl font-semibold text-[#0494b8]">
+                      {d.name}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -109,6 +107,6 @@ const Men = () => {
       />
     </div>
   );
-}
+};
 
 export default Men;
