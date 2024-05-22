@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import LockIcon from "@mui/icons-material/icons/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Login from "./Login"; // Import the Login component
@@ -9,7 +8,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [isLogin, setIsLogin] = useState(false); // State to track whether the user is on the login page
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
