@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import LockIcon from '@material-ui/icons/Lock';
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
-import Login from './Login'; // Import the Login component
+import React, { useState } from "react";
+import LockIcon from "@mui/icons-material/icons/Lock";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import Login from "./Login"; // Import the Login component
 
 const Signup = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLogin, setIsLogin] = useState(false); // State to track whether the user is on the login page
 
@@ -47,7 +47,7 @@ const Signup = () => {
           <div className="relative mb-6">
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] bg-gray-200"
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -78,7 +78,12 @@ const Signup = () => {
             Sign Up
           </button>
         </form>
-        <p className="text-gray-500 text-sm mt-4">Already a member? <button className="text-[#0494b8]" onClick={handleTogglePage}>Log In</button></p>
+        <p className="text-gray-500 text-sm mt-4">
+          Already a member?{" "}
+          <button className="text-[#0494b8]" onClick={handleTogglePage}>
+            Log In
+          </button>
+        </p>
       </div>
     </div>
   );
