@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
@@ -13,10 +12,8 @@ import { CarisoulData } from "../../../utils/data";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
-=======
 
 
->>>>>>> Stashed changes
 
 const Men = () => {
   const carouselContainerStyle = {
@@ -35,87 +32,81 @@ const Men = () => {
     fontSize: "20px",
     fontWeight: "bold",
   };
-
   return (
-<<<<<<< Updated upstream
     <div className="p-4 md:p-10">
-      <main className="h-full">
-        <center>
-          {CarisoulData.length > 0 && (
-            <div style={carouselContainerStyle}>
-              <Carousel
-                data={CarisoulData}
-                time={2000}
-                width="100%"
-                height="500px"
-                captionStyle={captionStyle}
-                radius="10px"
-                slideNumber={true}
-                slideNumberStyle={slideNumberStyle}
-                captionPosition="bottom"
-                automatic={true}
-                dots={true}
-                pauseIconColor="white"
-                pauseIconSize="40px"
-                slideBackgroundColor="darkgrey"
-                slideImageFit="cover"
-                thumbnails={true}
-                thumbnailWidth="100px"
-                style={{
-                  textAlign: "center",
-                  maxWidth: "850px",
-                  maxHeight: "500px",
-                  marginTop: "20px",
-                }}
-              />
-            </div>
-          )}
-        </center>
-      </main>
+    <main className="h-full">
+      <center>
+        {CarisoulData.length > 0 && (
+          <div style={carouselContainerStyle}>
+            <Carousel
+              data={CarisoulData}
+              time={2000}
+              width="100%"
+              height="500px"
+              captionStyle={captionStyle}
+              radius="10px"
+              slideNumber={true}
+              slideNumberStyle={slideNumberStyle}
+              captionPosition="bottom"
+              automatic={true}
+              dots={true}
+              pauseIconColor="white"
+              pauseIconSize="40px"
+              slideBackgroundColor="darkgrey"
+              slideImageFit="cover"
+              thumbnails={true}
+              thumbnailWidth="100px"
+              style={{
+                textAlign: "center",
+                maxWidth: "850px",
+                maxHeight: "500px",
+                marginTop: "20px",
+              }}
+            />
+          </div>
+        )}
+      </center>
+    </main>
 
-      <div className="mt-10">
-        <TabsComp
-          tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
-          tabLabe2={<span className="text-[#0494b8]">Unstiched</span>}
-          tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
-          tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
-          contetn1={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-          contetn2={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Menproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-          contetn3={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-          contetn4={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-        />
-      </div>
+    <div className="mt-10">
+      <TabsComp
+        tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
+        tabLabe2={<span className="text-[#0494b8]">Unstiched</span>}
+        tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
+        tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
+        contetn1={
+          <div className="flex flex-wrap justify-center gap-6 my-10">
+            {Womenproducts.map((product, index) => (
+              <BuyCard key={index} product={product} />
+            ))}
+          </div>
+        }
+        contetn2={
+          <div className="flex flex-wrap justify-center gap-6 my-10">
+            {Menproducts.map((product, index) => (
+              <BuyCard key={index} product={product} />
+            ))}
+          </div>
+        }
+        contetn3={
+          <div className="flex flex-wrap justify-center gap-6 my-10">
+            {Womenproducts.map((product, index) => (
+              <BuyCard key={index} product={product} />
+            ))}
+          </div>
+        }
+        contetn4={
+          <div className="flex flex-wrap justify-center gap-6 my-10">
+            {Womenproducts.map((product, index) => (
+              <BuyCard key={index} product={product} />
+            ))}
+          </div>
+        }
+      />
     </div>
-  );
-=======
-    <div>
-    ilio
-  </div>  );
->>>>>>> Stashed changes
+  </div>
+  )
+    
 };
 
 export default Men;
