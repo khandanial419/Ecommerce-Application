@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
@@ -12,6 +13,10 @@ import { CarisoulData } from "../../../utils/data";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
+=======
+
+
+>>>>>>> Stashed changes
 
 const Men = () => {
   const carouselContainerStyle = {
@@ -32,6 +37,7 @@ const Men = () => {
   };
 
   return (
+<<<<<<< Updated upstream
     <div className="p-4 md:p-10">
       <main className="h-full">
         <center>
@@ -105,6 +111,11 @@ const Men = () => {
       </div>
     </div>
   );
+=======
+    <div>
+    ilio
+  </div>  );
+>>>>>>> Stashed changes
 };
 
 export default Men;
