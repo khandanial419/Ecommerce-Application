@@ -17,9 +17,10 @@
     "@mui/joy": "^5.0.0-beta.36",
     "@mui/material": "^5.15.15",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
-    
+    "core-js": "^3.37.1",
     "ionicons": "^7.4.0",
     "react": "^18.2.0",
+    "react-carousel-minimal": "^1.1.0",
     "react-cookie": "^7.1.4",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
