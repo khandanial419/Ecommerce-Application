@@ -1,83 +1,64 @@
-import React from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Navigation } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { 
+         HiOutlineArrowNarrowLeft,
+         HiOutlineArrowNarrowRight,
+ } from "react-icons/hi";
+
 import { CarisoulData } from "../../../utils/data";
+
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
 
 const Women = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
-    appendDots: (dots) => (
-      <div className="bg-white rounded-lg p-2">
-        <ul> {dots} </ul>
-      </div>
-    ),
-    customPaging: (i) => (
-      <div className="w-8 h-8 text-black border border-white flex items-center justify-center">
-        {i + 1}
-      </div>
-    ),
-  };
 
   return (
-    <div className="w-full bg-white">
-      <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-        <h1 className="text-4xl font-bold text-center text-[#0494b8] mb-8">
-          This is WoMen Clothes
-        </h1>
-        <div className="w-3/4 m-auto">
-          <div className="mt-20">
-            <Slider {...settings} className="slick-slider">
-              {CarisoulData.map((d) => (
-                <div
-                  key={d.name}
-                  className="relative bg-white text-black rounded-xl shadow-lg overflow-hidden transition-transform transform hover:scale-105 hover:shadow-xl mx-2"
-                >
-                  <div className="h-72 flex justify-center items-center overflow-hidden bg-white">
-                    <img
-                      src={d.img}
-                      alt={d.name}
-                      className="object-cover h-full w-full"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-[#0494b8] bg-opacity-0 hover:bg-opacity-30 transition-opacity"></div>
-                  <div className="flex flex-col items-center justify-center gap-4 p-4 z-10 relative">
-                    <p className="text-xl font-semibold text-[#0494b8]">
-                      {d.name}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </Slider>
-          </div>
+    <div>
+      <Swiper 
+       className="relative group"
+       spaceBetween={50}
+       slidesPerView={1}
+        navigation={{nextEl:".button-next-slide",
+                     prevEl:".button-prev-slide"
+        }}
+         modules={[Navigation]}>
+        {CarisoulData.map((item, index) => (
+          <SwiperSlide key={index}>
+          <div className="flex justify-center items-center h-full relative">
+  <img
+    className="w-[1100px] h-[700px]"
+    src={item.img}
+    alt="random"
+  />
+  <div className="space-y-5 title-content absolute top-[25%] left-[350px]">
+    <h2 className="text-[16px]">{item.title}</h2>
+    <h3 className="text-[50px] font-[700]">{item.name}</h3>
+    <h3><p className="text-[14px] w-[40%]">
+      {item.review}
+    </p></h3>
+    <button className="px-[2rem] bg-[#333] text-[13px] p-2 text-white">
+      Shop Now
+    </button>
+  </div>
+</div>
+
+        </SwiperSlide>
+        ))}
+       
+
+        <div className=" top-[50%] absolute z-10 button-next-slide group-hover:left-0 -left-[23rem] duration-500 text-white w-[40px] h-[40px] bg-[#000] grid place-items-center">
+        
+        <HiOutlineArrowNarrowLeft/>
         </div>
-      </div>
+
+        <div className="top-[50%] absolute z-10 button-prev-slide group-hover:right-0 -right-[23rem] duration-500 text-white w-[40px] h-[40px] bg-[#000] grid place-items-center">
+        <HiOutlineArrowNarrowRight />
+        </div>
+      </Swiper>
+
       {/* end of carousel */}
       <TabsComp
         tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
