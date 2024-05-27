@@ -35,7 +35,7 @@ const Signup = () => {
         <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] "
               type="email"
               placeholder="Email"
               value={email}
@@ -45,7 +45,7 @@ const Signup = () => {
           </div>
           <div className="relative mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] "
               type={showPassword ? "text" : "password"}
               placeholder="Password"
               value={password}
@@ -62,7 +62,7 @@ const Signup = () => {
           </div>
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] bg-gray-200"
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] "
               type="password"
               placeholder="Confirm Password"
               value={confirmPassword}
@@ -71,10 +71,10 @@ const Signup = () => {
             />
           </div>
           <button
-            className="w-[500] bg-[#0494b8] text-white rounded-full px-4 py-2 hover:bg-[#0494b8]"
+            className="w-[200px] bg-[#0494b8] text-xl hover:border hover:border-spacing-0 border border-[#0494b8] hover:text-[#0494b8] hover:bg-white text-white rounded-full px-4 py-2 hover:border-opacity-90"
             type="submit"
           >
-            Sign Up
+            Create Account
           </button>
         </form>
         <p className="text-gray-500 text-sm mt-4">
