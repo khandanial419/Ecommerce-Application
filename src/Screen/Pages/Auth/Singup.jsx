@@ -3,17 +3,37 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Login from "./Login"; // Import the Login component
 import { Link } from "react-router-dom";
-
+import { toast, ToastContainer } from "react-toastify";
+import axios from "axios";
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle signup logic here
+    try {
+      const { data } = await axios.post(
+        "https://localhost:6000/register",
+        values,
+        { withCredentials: true }
+      );
+      console.log("this is data", data);
+      if (data) {
+        if (data.errors) {
+        } else {
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleTogglePasswordVisibility = () => {
@@ -33,14 +53,15 @@ const Signup = () => {
     <div className="flex justify-center items-center min-h-screen bg-white">
       <div className="w-full max-w-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Sign Up</h2>
-        <form onSubmit={handleSubmit} className="w-full">
+        <form onSubmit={(e) => handleSubmit(e)} className="w-full">
           <div className="mb-6">
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] "
               type="email"
               placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
               required
             />
           </div>
@@ -49,8 +70,9 @@ const Signup = () => {
               className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] "
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
               required
             />
             <button
@@ -104,6 +126,7 @@ const Signup = () => {
             Create Account
           </button>
         </form>
+        <ToastContainer />
         <p className="text-gray-500 text-sm mt-4">
           Already a member?{" "}
           <button className="text-[#0494b8]" onClick={handleTogglePage}>
