@@ -32,9 +32,8 @@ const Women = () => {
   };
 
   return (
-    
-    <div className="p-4 md:p-10">
-      <main className="h-full">
+    <div className="min-h-screen flex flex-col justify-between">
+      <main className="flex-grow p-4 md:p-10">
         <center>
           {CarisoulData.length > 0 && (
             <div style={carouselContainerStyle}>
@@ -66,46 +65,47 @@ const Women = () => {
             </div>
           )}
         </center>
+        <div className="mt-10">
+          <TabsComp
+            tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
+            tabLabe2={<span className="text-[#0494b8]">Unstiched</span>}
+            tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
+            tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
+            contetn1={
+              <div className="flex flex-wrap justify-center gap-6 my-10">
+                {Womenproducts.map((product, index) => (
+                  <BuyCard key={index} product={product} />
+                ))}
+              </div>
+            }
+            contetn2={
+              <div className="flex flex-wrap justify-center gap-6 my-10">
+                {Menproducts.map((product, index) => (
+                  <BuyCard key={index} product={product} />
+                ))}
+              </div>
+            }
+            contetn3={
+              <div className="flex flex-wrap justify-center gap-6 my-10">
+                {Womenproducts.map((product, index) => (
+                  <BuyCard key={index} product={product} />
+                ))}
+              </div>
+            }
+            contetn4={
+              <div className="flex flex-wrap justify-center gap-6 my-10">
+                {Womenproducts.map((product, index) => (
+                  <BuyCard key={index} product={product} />
+                ))}
+              </div>
+            }
+          />
+        </div>
       </main>
-
-      <div className="mt-10">
-        <TabsComp
-          tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
-          tabLabe2={<span className="text-[#0494b8]">Unstiched</span>}
-          tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
-          tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
-          contetn1={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-          contetn2={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Menproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-          contetn3={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-          contetn4={
-            <div className="flex flex-wrap justify-center gap-6 my-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
-          }
-        />
-      </div>
+      <footer className="w-full bg-gradient-to-r from-[#9AE6E6] to-[#0494b8] py-4 text-center text-white mt-4">
+        © 2024 DHT Wholesale Market. All rights reserved.
+      </footer>
     </div>
-
   );
 };
 

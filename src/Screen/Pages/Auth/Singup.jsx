@@ -5,14 +5,13 @@ import Login from "./Login"; // Import the Login component
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
+
 const Signup = () => {
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
 
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
@@ -28,7 +27,9 @@ const Signup = () => {
       console.log("this is data", data);
       if (data) {
         if (data.errors) {
+          // handle errors
         } else {
+          // handle success
         }
       }
     } catch (error) {
@@ -41,23 +42,23 @@ const Signup = () => {
   };
 
   const handleTogglePage = () => {
-    setIsLogin(!isLogin); // Toggle between login and signup pages
+    setIsLogin(!isLogin);
   };
 
-  // Render the appropriate component based on the state
   if (isLogin) {
     return <Login />;
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="w-full max-w-xl p-8 text-center">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-white">
+      <div className="w-full max-w-xl p-8 text-center mb-auto">
         <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Sign Up</h2>
-        <form onSubmit={(e) => handleSubmit(e)} className="w-full">
+        <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] "
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
               type="email"
+              name="email"
               placeholder="Email"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
@@ -67,8 +68,9 @@ const Signup = () => {
           </div>
           <div className="relative mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] "
+              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8]"
               type={showPassword ? "text" : "password"}
+              name="password"
               placeholder="Password"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
@@ -85,7 +87,7 @@ const Signup = () => {
           </div>
           <div className="mb-6">
             <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] "
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
               type="password"
               placeholder="Confirm Password"
               value={confirmPassword}
@@ -100,25 +102,23 @@ const Signup = () => {
               id="terms"
               className="mr-2"
             />
-
             <span className="text-gray-600">
               I agree to the&nbsp;
               <Link
-                to={"/termsofservices"}
+                to="/termsofservices"
                 className="text-blue-500 underline hover:text-blue-700"
               >
                 Terms of Service
               </Link>
               &nbsp;and&nbsp;
               <Link
-                to={"/privacypolicy"}
+                to="/privacypolicy"
                 className="text-blue-500 underline hover:text-blue-700"
               >
                 Privacy Policy
               </Link>
             </span>
           </div>
-
           <button
             className="w-[200px] bg-[#0494b8] text-xl hover:border hover:border-spacing-0 border border-[#0494b8] hover:text-[#0494b8] hover:bg-white text-white rounded-full px-4 py-2 hover:border-opacity-90"
             type="submit"
@@ -134,6 +134,7 @@ const Signup = () => {
           </button>
         </p>
       </div>
+      
     </div>
   );
 };

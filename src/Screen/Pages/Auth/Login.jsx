@@ -11,7 +11,7 @@ const Login = () => {
     password: "",
   });
   const [showPassword, setShowPassword] = useState(false);
-  const [isSignup, setIsSignup] = useState(false); // State to track whether the user is on the signup page
+  const [isSignup, setIsSignup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,24 +29,24 @@ const Login = () => {
   };
 
   const handleTogglePage = () => {
-    setIsSignup(!isSignup); // Toggle between login and signup pages
+    setIsSignup(!isSignup);
   };
 
-  // Render the appropriate component based on the state
   if (isSignup) {
     return <Signup />;
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-white">
-      <div className="w-full max-w-xl p-8 text-center">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-white">
+      <div className="w-full max-w-xl p-8 text-center mb-auto">
         <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Login</h2>
-        <p className="text-lg text-gray-700 mb-10 ">Welcome back!</p>
-        <form onSubmit={(e) => handleSubmit(e)} className="w-full">
+        <p className="text-lg text-gray-700 mb-10">Welcome back!</p>
+        <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-6">
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type="email"
+              name="email"
               placeholder="Email"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
@@ -58,6 +58,7 @@ const Login = () => {
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8] bg-gray-200"
               type={showPassword ? "text" : "password"}
+              name="password"
               placeholder="Password"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
@@ -76,7 +77,7 @@ const Login = () => {
             Forgot Password?
           </a>
           <button
-            className="w-[500] bg-[#0494b8] text-white rounded-full px-4 py-2 hover:bg-[#0494b8]"
+            className="w-[200px] bg-[#0494b8] text-xl hover:border hover:border-spacing-0 border border-[#0494b8] hover:text-[#0494b8] hover:bg-white text-white rounded-full px-4 py-2 hover:border-opacity-90"
             type="submit"
           >
             Login
@@ -88,8 +89,9 @@ const Login = () => {
             </button>
           </p>
         </form>
-        <ToastContainer />
       </div>
+      
+      <ToastContainer />
     </div>
   );
 };

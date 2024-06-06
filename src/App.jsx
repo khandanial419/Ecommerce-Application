@@ -3,9 +3,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Footer = React.lazy(() => import("./Screen/Navigations/Footer/Footer"));
 const Home = React.lazy(() => import("./Screen/Pages/Home/Home"));
-const ContactUs = React.lazy(() =>
-  import("./Screen/Pages/Contactus/Contactus")
-);
+const ContactUs = React.lazy(() =>import("./Screen/Pages/Contactus/Contactus"));
 const About = React.lazy(() => import("./Screen/Pages/About/About"));
 const Login = React.lazy(() => import("./Screen/Pages/Auth/Login"));
 const Signup = React.lazy(() => import("./Screen/Pages/Auth/Singup"));
@@ -14,12 +12,8 @@ const Navbar = React.lazy(() => import("./Screen/Navigations/Navbar/Navbar"));
 const Error = React.lazy(() => import("./Screen/Pages/Error"));
 const Men = React.lazy(() => import("./Screen/Component/Selection/Men"));
 const Women = React.lazy(() => import("./Screen/Component/Selection/Women"));
-const BabyDoll = React.lazy(() =>
-  import("./Screen/Component/Selection/BabyDoll")
-);
-const BabyPrince = React.lazy(() =>
-  import("./Screen/Component/Selection/BabyPrince")
-);
+const BabyDoll = React.lazy(() => import("./Screen/Component/Selection/BabyDoll"));
+const BabyPrince = React.lazy(() =>import("./Screen/Component/Selection/BabyPrince"));
 const App = () => {
   return (
     <>
@@ -31,7 +25,7 @@ const App = () => {
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/about" element={<About />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Signup />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/product" element={<Product />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
