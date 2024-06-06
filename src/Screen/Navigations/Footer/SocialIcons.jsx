@@ -22,14 +22,17 @@ const SocialIcons = ({ Icons }) => {
   return (
     <div className="text-[#0494b8]">
       {Icons.map((icon) => (
-        <span
+        <a
           key={icon.name}
+          href={icon.link}
+          target="_blank"
+          rel="noopener noreferrer"
           className="p-2 cursor-pointer inline-flex items-center
-        rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-[#0494b8]
-        duration-300 "
+            rounded-full bg-gray-700 mx-1.5 text-xl hover:text-gray-100 hover:bg-[#0494b8]
+            duration-300 "
         >
           {getIcon(icon.name)}
-        </span>
+        </a>
       ))}
     </div>
   );

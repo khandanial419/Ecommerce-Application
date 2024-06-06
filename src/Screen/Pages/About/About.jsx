@@ -3,8 +3,8 @@ import { Grid } from "@mui/material";
 
 const About = () => {
   return (
-    <div className="min-h-screen flex flex-col"> {/* Added min-h-screen and flex flex-col */}
-      <div className="mb-auto"> {/* Added mb-auto */}
+    <div className="min-h-screen flex flex-col"> 
+      <div className="mb-auto"> 
         {/* Header Section */}
         <div className="bg-white h-auto w-full mb-10">
           <div className="px-3 sm:px-0">

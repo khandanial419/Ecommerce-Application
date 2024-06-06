@@ -3,7 +3,7 @@ import React from 'react';
 const ContactUs = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <div className="container mx-auto p-4 mt-8 flex-grow"> {/* Added flex-grow */}
+      <div className="container mx-auto p-4 mt-8 flex-grow">
         <div className="w-full mb-8 text-center">
           <h1 className="text-3xl font-bold mb-4">Feel Free To Contact Us</h1>
         </div>

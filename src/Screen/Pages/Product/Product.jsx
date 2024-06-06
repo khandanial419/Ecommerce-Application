@@ -6,8 +6,8 @@ import TabsComp from "../../Component/TabsComp";
 
 export default function Product() {
   return (
-    <div className="min-h-screen flex flex-col"> {/* Added min-h-screen and flex flex-col */}
-      <div className="mb-auto"> {/* Added mb-auto */}
+    <div className="min-h-screen flex flex-col"> 
+      <div className="mb-auto"> 
         <CardOnText
           imageUrl="https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           txt1="DHT Products"
