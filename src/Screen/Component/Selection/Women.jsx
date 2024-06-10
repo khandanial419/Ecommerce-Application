@@ -68,7 +68,7 @@ const Women = () => {
         <div className="mt-10">
           <TabsComp
             tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
-            tabLabe2={<span className="text-[#0494b8]">Unstiched</span>}
+            tabLabel2={<span className="text-[#0494b8]">Unstiched</span>}
             tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
             tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
             contetn1={

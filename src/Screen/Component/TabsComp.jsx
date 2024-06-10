@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 
 const TabsComp = ({
   tabLabel1,
-  tabLabe2,
+  tabLabel2,
   tabLabel3,
   tabLabel4,
   contetn1,
@@ -36,7 +36,7 @@ const TabsComp = ({
           }}
         >
           <Tab label={tabLabel1} />
-          <Tab label={tabLabe2} />
+          <Tab label={tabLabel2} />
           <Tab label={tabLabel3} />
           <Tab label={tabLabel4} />
         </Tabs>
