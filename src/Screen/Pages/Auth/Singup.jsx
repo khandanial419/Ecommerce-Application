@@ -4,6 +4,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Login from "./Login"; // Import the Login component
 import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import react-toastify CSS
 import axios from "axios";
 
 const Signup = () => {
@@ -17,35 +18,43 @@ const Signup = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:3001/auth/signup', {
-                method: 'POST',
-                headers: {
-                    "Access-Control-Allow-Headers" : "Content-Type",
-                    "Access-Control-Allow-Origin": "*",
-                    'Content-Type': 'application/json',
-                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH"
-                },
-                body: JSON.stringify({
-                  first_name: "John",
-                  last_name: "Doe",
-                  email: values.email,
-                  password: values.password,
-                }),
-            });
+    e.preventDefault();
+    if (values.password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-            const data = await response.json();
-            console.log("this is data", data);
-            if (data.errors) {
-                // handle errors
-            } else {
-                // handle success
-            }
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    try {
+      const response = await fetch("http://localhost:3001/auth/signup", {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+        },
+        body: JSON.stringify({
+          first_name: "John",
+          last_name: "Doe",
+          email: values.email,
+          password: values.password,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.errors) {
+        data.errors.forEach((error) => {
+          toast.error(error.msg);
+        });
+      } else {
+        toast.success("Signup successful!");
+        setIsLogin(true);
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occurred. Please try again.");
+    }
+  };
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -111,6 +120,7 @@ const Signup = () => {
               name="is_term_and_condition_accepted"
               id="terms"
               className="mr-2"
+              required
             />
             <span className="text-gray-600">
               I agree to the&nbsp;
@@ -144,7 +154,6 @@ const Signup = () => {
           </button>
         </p>
       </div>
-      
     </div>
   );
 };

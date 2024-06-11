@@ -5,7 +5,9 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Signup from "./Singup"; // Import the Signup component
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -16,9 +18,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("https://localhost:6000/register", {
+      const { data } = await axios.post("http://localhost:3001/auth/signin", {
         ...values,
       });
+      if (data) {
+        navigate("/");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -90,7 +95,7 @@ const Login = () => {
           </p>
         </form>
       </div>
-      
+
       <ToastContainer />
     </div>
   );
