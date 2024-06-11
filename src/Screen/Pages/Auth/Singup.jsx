@@ -17,25 +17,35 @@ const Signup = () => {
   const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const { data } = await axios.post(
-        "https://localhost:6000/register",
-        values,
-        { withCredentials: true }
-      );
-      console.log("this is data", data);
-      if (data) {
-        if (data.errors) {
-          // handle errors
-        } else {
-          // handle success
+        e.preventDefault();
+        try {
+            const response = await fetch('http://localhost:3001/auth/signup', {
+                method: 'POST',
+                headers: {
+                    "Access-Control-Allow-Headers" : "Content-Type",
+                    "Access-Control-Allow-Origin": "*",
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH"
+                },
+                body: JSON.stringify({
+                  first_name: "John",
+                  last_name: "Doe",
+                  email: values.email,
+                  password: values.password,
+                }),
+            });
+
+            const data = await response.json();
+            console.log("this is data", data);
+            if (data.errors) {
+                // handle errors
+            } else {
+                // handle success
+            }
+        } catch (error) {
+            console.log(error);
         }
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
 
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
