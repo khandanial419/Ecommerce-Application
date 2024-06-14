@@ -6,6 +6,7 @@ const Footer = React.lazy(() => import("./Screen/Navigations/Footer/Footer"));
 const Home = React.lazy(() => import("./Screen/Pages/Home/Home"));
 const ContactUs = React.lazy(() => import("./Screen/Pages/Contactus/Contactus"));
 const About = React.lazy(() => import("./Screen/Pages/About/About"));
+const Faq = React.lazy(() => import("./Screen/Pages/Faq/Faq"));
 const Login = React.lazy(() => import("./Screen/Pages/Auth/Login"));
 const Signup = React.lazy(() => import("./Screen/Pages/Auth/Singup"));
 const Product = React.lazy(() => import("./Screen/Pages/Product/Product"));
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/contactus" element={<ContactUs />} />
             <Route path="/about" element={<About />} />
+            <Route path="/faq" element={<Faq/>} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/product" element={<Product />} />
