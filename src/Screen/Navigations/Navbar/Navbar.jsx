@@ -117,7 +117,7 @@ const Navbar = () => {
               Products
             </NavLink>
             <NavLink
-              to="/product"
+              to="/blog"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
               <ImportContactsIcon />
