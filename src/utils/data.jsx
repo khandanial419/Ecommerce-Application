@@ -292,3 +292,63 @@ export const CarisoulData = [
     caption: "Darjeeling",
   },
 ];
+
+
+
+export const BlogData = [
+  {
+    title:"London House Removals: What to Look for in a Removal Company",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    moreContent:"More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
+    date:"2024-06-30",
+  },
+  {
+    title:"London House Removals: What to Look for in a Removal Company",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    moreContent:"More content for card 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image:"https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
+    date:"2024-06-30",
+  },
+  {
+    title:"London House Removals: What to Look for in a Removal Company",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    moreContent:"More content for card 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image:"https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
+    date:"2024-06-30",
+  },
+  {
+    title:"London House Removals: What to Look for in a Removal Company",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    moreContent:"More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
+    date:"2024-06-30",
+  }
+]
+
+export const faqs = [
+  {
+    question: "What sizes are available for your clothing items?",
+    answer: "We offer a range of sizes from XS to XXL. Please refer to our size chart for detailed measurements to ensure the perfect fit.",
+  },
+  {
+    question: "How can I track my order? ",
+    answer: "Once your order is shipped, we will send you a tracking number via email. You can use this number on our website’s tracking page to check the status of your delivery",
+  },
+  {
+    question: "What is your return policy? ",
+    answer: "We accept returns within 30 days of purchase. Items must be in their original condition with tags attached. Please visit our returns page for a step-by-step guide on how to return your items.",
+  },
+  {
+    question: "Do you ship internationally?",
+    answer: "Yes, we ship worldwide! Shipping costs and delivery times vary depending on the destination. Check our shipping policy for more information.",
+  },
+  {
+    question: "How can I make changes to my order? ",
+    answer: "If you need to make any changes to your order, please contact our customer service team as soon as possible. We’ll do our best to accommodate your request.",
+  },
+  {
+    question: "Are there any washing instructions for your clothing?  ",
+    answer: "Yes, each item comes with specific washing instructions. Generally, we recommend washing our clothes in cold water with similar colors and hanging them to dry.",
+  },
+];

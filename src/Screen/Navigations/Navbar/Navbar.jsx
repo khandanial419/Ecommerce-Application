@@ -21,6 +21,8 @@ import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import Cookies from "js-cookie";
 
+import HelpIcon from "@mui/icons-material/Help";
+
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [user, setUser] = useState(null);
@@ -66,7 +68,7 @@ const Navbar = () => {
       </div>
 
       <List>
-        {["Home", "Products", "Blogs", "About Us", "Contact Us"].map(
+        {["Home", "Products", "Blogs", "About Us", "Contact Us", "FAQ"].map(
           (text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton
@@ -142,7 +144,7 @@ const Navbar = () => {
               Products
             </NavLink>
             <NavLink
-              to="/product"
+              to="/blog"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
               <ImportContactsIcon />
@@ -161,6 +163,14 @@ const Navbar = () => {
             >
               <ContactEmergencyIcon />
               Contact Us
+            </NavLink>
+
+            <NavLink
+              to="faq"
+              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+            >
+              <HelpIcon />
+              <span className="ml-1">FAQ</span>
             </NavLink>
           </div>
           <div className="hidden md:flex space-x-4">
