@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Login from "./Login"; // Import the Login component
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Import react-toastify CSS
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 
 const Signup = () => {
   const [values, setValues] = useState({
+    first_name: "",
+    last_name: "",
     email: "",
     password: "",
   });
-
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,34 +26,18 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/auth/signup", {
-        method: "POST",
-        headers: {
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
-        },
-        body: JSON.stringify({
-          first_name: "John",
-          last_name: "Doe",
-          email: values.email,
-          password: values.password,
-        }),
-      });
-
-      const data = await response.json();
-      if (data.errors) {
-        data.errors.forEach((error) => {
-          toast.error(error.msg);
-        });
-      } else {
-        toast.success("Signup successful!");
+      const response = await axios.post(
+        "http://localhost:3001/auth/signup",
+        values
+      );
+      if (response.data.success) {
+        toast.success(response.data.msg);
         setIsLogin(true);
+      } else {
+        toast.error(response.data.msg);
       }
     } catch (error) {
-      console.log(error);
-      toast.error("An error occurred. Please try again.");
+      toast.error(error.response?.data?.msgErr || "An error occurred");
     }
   };
 
@@ -65,7 +50,7 @@ const Signup = () => {
   };
 
   if (isLogin) {
-    return <Login />;
+    navigate("/login"); // Redirect to the login page
   }
 
   return (
@@ -73,6 +58,30 @@ const Signup = () => {
       <div className="w-full max-w-xl p-8 text-center mb-auto">
         <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Sign Up</h2>
         <form onSubmit={handleSubmit} className="w-full">
+          <div className="mb-6">
+            <input
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
+              type="text"
+              name="first_name"
+              placeholder="First Name"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <input
+              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
+              type="text"
+              name="last_name"
+              placeholder="Last Name"
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+              required
+            />
+          </div>
           <div className="mb-6">
             <input
               className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
 import { GiShoppingCart } from "react-icons/gi";
@@ -19,8 +19,25 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
+import Cookies from "js-cookie";
+
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = Cookies.get("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    Cookies.remove("user");
+    setUser(null);
+    navigate(0); // Reload the page
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -67,20 +84,28 @@ const Navbar = () => {
       </List>
       <Divider />
       <List>
-        {["Login", "Signup"].map((text) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>
-              <ListItemText primary={text} />
+        {user ? (
+          <ListItem disablePadding>
+            <ListItemButton onClick={handleLogout}>
+              <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
-        ))}
+        ) : (
+          ["Login", "Signup"].map((text) => (
+            <ListItem key={text} disablePadding>
+              <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          ))
+        )}
       </List>
     </Box>
   );
 
   return (
     <nav
-      className="bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white"
+      className="bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white sticky top-0 z-[100]"
       style={{
         background: "white",
         backgroundImage:
@@ -139,18 +164,35 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="hidden md:flex space-x-4">
-            <NavLink
-              to="/login"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
-            >
-              Login
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
-            >
-              Signup
-            </NavLink>
+            {user ? (
+              <>
+                <span className="flex items-center text-[#0494b8] px-3 py-2 rounded-md text-lg font-bold">
+                  {user.name}
+                </span>
+                <NavLink
+                  to="#"
+                  onClick={handleLogout}
+                  className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+                >
+                  Logout
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to="/signup"
+                  className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
+                >
+                  Signup
+                </NavLink>
+              </>
+            )}
             <NavLink
               to="#"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
