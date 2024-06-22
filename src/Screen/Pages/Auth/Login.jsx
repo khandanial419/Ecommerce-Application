@@ -21,7 +21,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:3001/auth/signin", {
+      const { data } = await axios.post("http://127.0.0.1:8000/api/login", {
         ...values,
       });
       if (data.success) {
