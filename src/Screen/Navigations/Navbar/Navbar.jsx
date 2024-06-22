@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"; // Importing the new ShoppingCartIcon
@@ -17,12 +17,26 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
-import HelpIcon from "@mui/icons-material/Help";
-import LoginIcon from "@mui/icons-material/Login";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import Cookies from "js-cookie";
 
+import HelpIcon from "@mui/icons-material/Help";
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = Cookies.get("user");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    Cookies.remove("user");
+    setUser(null);
+    navigate(0); // Reload the page
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
@@ -74,9 +88,6 @@ const Navbar = () => {
         {["Login", "Signup"].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>
-              <ListItemIcon>
-                {text === "Login" ? <LoginIcon /> : <PersonAddIcon />}
-              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -87,7 +98,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-[100] bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white"
+      className="bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white"
       style={{
         background: "white",
         backgroundImage: "linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%)",
@@ -155,17 +166,15 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-4">
             <NavLink
               to="/login"
-              className="flex items-center hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
+              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
-              <LoginIcon />
-              <span className="ml-1">Login</span>
+              Login
             </NavLink>
             <NavLink
               to="/signup"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+              className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
             >
-              <PersonAddIcon />
-              <span className="ml-1">Register</span>
+              Signup
             </NavLink>
             <NavLink
               to="#"

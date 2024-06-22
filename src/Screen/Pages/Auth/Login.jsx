@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import LockIcon from "@mui/icons-material/Lock";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import Signup from "./Singup"; // Import the Signup component
+import Signup from "./Singup";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import "react-toastify/dist/ReactToastify.css";
+
 const Login = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState({
@@ -18,14 +21,23 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:3001/auth/signin", {
+      const { data } = await axios.post("http://127.0.0.1:8000/api/login", {
         ...values,
       });
-      if (data) {
+      if (data.success) {
+        // Set user data in cookies
+        Cookies.set("user", JSON.stringify(data.user), { expires: 7 });
         navigate("/");
+        navigate(0);
+      } else {
+        toast.error(data.msgErr);
       }
     } catch (error) {
-      console.log(error);
+      if (error.response && error.response.data) {
+        toast.error(error.response.data.msgErr);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 
