@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
-import { GiShoppingCart } from "react-icons/gi";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"; // Importing the new ShoppingCartIcon
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -12,22 +12,20 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import HomeIcon from "@mui/icons-material/Home";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import HelpIcon from "@mui/icons-material/Help";
+import LoginIcon from "@mui/icons-material/Login";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
+
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
+    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }
     setIsDrawerOpen(open);
@@ -50,7 +48,7 @@ const Navbar = () => {
       </div>
 
       <List>
-        {["Home", "Products", "Blogs", "About Us", "Contact Us","FAQ"].map(
+        {["Home", "Products", "Blogs", "About Us", "Contact Us", "FAQ"].map(
           (text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton
@@ -58,7 +56,12 @@ const Navbar = () => {
                 to={`/${text.replace(/\s+/g, "").toLowerCase()}`}
               >
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index === 0 ? <HomeIcon /> : 
+                   index === 1 ? <InventoryIcon /> : 
+                   index === 2 ? <ImportContactsIcon /> : 
+                   index === 3 ? <InfoIcon /> : 
+                   index === 4 ? <ContactEmergencyIcon /> : 
+                   <HelpIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -71,6 +74,9 @@ const Navbar = () => {
         {["Login", "Signup"].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>
+              <ListItemIcon>
+                {text === "Login" ? <LoginIcon /> : <PersonAddIcon />}
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
@@ -81,11 +87,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className="bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white"
+      className="sticky top-0 z-[100] bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white"
       style={{
         background: "white",
-        backgroundImage:
-          "linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%)",
+        backgroundImage: "linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%)",
         backgroundBlendMode: "lighten",
       }}
     >
@@ -150,21 +155,24 @@ const Navbar = () => {
           <div className="hidden md:flex space-x-4">
             <NavLink
               to="/login"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+              className="flex items-center hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
             >
-              Login
+              <LoginIcon />
+              <span className="ml-1">Login</span>
             </NavLink>
             <NavLink
               to="/signup"
-              className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
+              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
-              Signup
+              <PersonAddIcon />
+              <span className="ml-1">Register</span>
             </NavLink>
             <NavLink
               to="#"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
-              <GiShoppingCart size={30} />
+              <ShoppingCartIcon size={30} />
+              {/* <span className="ml-1">Cart</span> */}
             </NavLink>
           </div>
           <button

@@ -14,7 +14,7 @@ const Faq = () => {
       <main className="flex-grow p-4 md:p-10">
         <div className="min-h-screen flex flex-col justify-center items-center bg-white-100 p-4">
           <div className="w-full max-w-6xl">
-            <h1 className="text-2xl md:text-4xl font-bold text-center mb-20 text-[#E97B08]">
+            <h1 className="text-2xl md:text-4xl font-bold text-center mb-20 text-[#0494b8]">
               Frequently Asked Questions
             </h1>
             {faqs.map((faq, index) => (
@@ -26,7 +26,7 @@ const Faq = () => {
                   <span className="mr-4">
                     {expanded === index ? (
                       <svg
-                        className="w-6 h-6 text-[#E97B08]"
+                        className="w-6 h-6 text-[#0494b8]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -41,7 +41,7 @@ const Faq = () => {
                       </svg>
                     ) : (
                       <svg
-                        className="w-6 h-6 text-[#E97B08]"
+                        className="w-6 h-6 text-[#0494b8]"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

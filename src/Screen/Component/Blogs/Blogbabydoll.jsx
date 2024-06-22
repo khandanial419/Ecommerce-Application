@@ -28,10 +28,10 @@ const Blogbabydoll = () => {
               <img
                 src={blog.image}
                 alt={blog.title}
-                className="rounded-lg" // Apply rounded corners to the image
+                className="rounded-lg" 
                 style={{ width: "100%", maxHeight: "650px", display: "block" }}
               />
-              <div className="absolute top-0 left-4 bg-[#E97B08] flex flex-col justify-center items-center h-20 w-20 sm:h-20 sm:w-20 md:h-20 md:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20 2xl:h-20 2xl:w-20 text-center">
+              <div className="absolute top-0 left-4 bg-[#0494b8] flex flex-col justify-center items-center h-20 w-20 sm:h-20 sm:w-20 md:h-20 md:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20 2xl:h-20 2xl:w-20 text-center">
                 <span className="text-white font-bold text-2xl">{date}</span>
                 <span className="text-white font-bold text-xl">{month}</span>
               </div>

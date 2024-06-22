@@ -1,21 +1,19 @@
 export const PRODUCTS = [
-    { name: "women", link: "#"} ,
-    { name: "baby boy", link: "#" },
-    { name: "baby girl", link: "#" },
+  { name: "Men", link: "http://localhost:5173/men"} ,  
+  { name: "Women", link: "http://localhost:5173/women"} ,
+    { name: "Baby-doll", link: "http://localhost:5173/baby-doll" },
+    { name: "Baby-prince", link: "http://localhost:5173/baby-prince" },
   ];
   export const RESOURCES = [
-    { name: "Industries and tools", link: "#" },
-    { name: "Use cases", link: "#" },
-    { name: "Blog", link: "#" },
-    { name: "Online evenet", link: "#" },
-    { name: "Nostrud exercitation", link: "#" },
+    { name: "Home", link: "http://localhost:5173/" },
+   
+    { name: "Blog", link: "http://localhost:5173/blog" },
   ];
   export const COMPANY = [
-    { name: "Diversity & inclusion", link: "#" },
-    { name: "About us", link: "#" },
-    { name: "Press", link: "#" },
-    { name: "Customer Stories", link: "#" },
-    { name: "Online communities", link: "#" },
+    { name: "Contact Us", link: "http://localhost:5173/contactus" },
+    { name: "About us", link: "http://localhost:5173/about" },
+    { name: "FAQ", link: "http://localhost:5173/faq" },
+   
   ];
   export const SUPPORT = [
     { name: "Documentation", link: "#" },

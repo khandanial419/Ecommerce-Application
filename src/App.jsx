@@ -21,6 +21,8 @@ const Men = React.lazy(() => import("./Screen/Component/Selection/Men"));
 const Women = React.lazy(() => import("./Screen/Component/Selection/Women"));
 const BabyDoll = React.lazy(() => import("./Screen/Component/Selection/BabyDoll"));
 const BabyPrince = React.lazy(() => import("./Screen/Component/Selection/BabyPrince"));
+const Privacy_policy = React.lazy(() => import("./Screen/Component/Permission/Privacy_policy"));
+const Term_service = React.lazy(() => import("./Screen/Component/Permission/Term_service"));
 
 const App = () => {
   return (
@@ -45,6 +47,8 @@ const App = () => {
             <Route path="/women" element={<Women />} />
             <Route path="/baby-doll" element={<BabyDoll />} />
             <Route path="/baby-prince" element={<BabyPrince />} />
+            <Route path="/privacypolicy" element={<Privacy_policy/>}/>
+            <Route path="/termsofservices" element={<Term_service/>}/>
             <Route path="*" element={<Error />} />
           </Routes>
         </Suspense>
