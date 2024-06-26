@@ -19,39 +19,40 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (values.password !== confirmPassword) {
-          toast.error("Passwords do not match");
-          return;
-        }
-        try {
-            const response = await fetch('http://127.0.0.1:8000/api/register', {
-                method: 'POST',
-                headers: {
-                    "Access-Control-Allow-Headers" : "Content-Type",
-                    "Access-Control-Allow-Origin": "*",
-                    'Content-Type': 'application/json',
-                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH"
-                },
-                body: JSON.stringify({
-                  first_name: "John",
-                  last_name: "Doe",
-                  email: values.email,
-                  password: values.password,
-                }),
-            });
-
+    e.preventDefault();
+    if (values.password !== confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
     try {
-      const response = await axios.post(
-        "http://localhost:3001/auth/signup",
-        values
-      );
-      if (response.data.success) {
-        toast.success(response.data.msg);
-        setIsLogin(true);
-      } else {
-        toast.error(response.data.msg);
-      }
+      const response = await fetch("http://127.0.0.1:8000/api/register", {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
+        },
+        body: JSON.stringify({
+          first_name: "John",
+          last_name: "Doe",
+          email: values.email,
+          password: values.password,
+        }),
+      });
+
+      // try {
+      //   const response = await axios.post(
+      //     "http://localhost:3001/auth/signup",
+      //     values
+      //   );
+      //   if (response.data.success) {
+      //     toast.success(response.data.msg);
+      //     setIsLogin(true);
+      //   } else {
+      //     toast.error(response.data.msg);
+      //   }
+      // }
     } catch (error) {
       toast.error(error.response?.data?.msgErr || "An error occurred");
     }

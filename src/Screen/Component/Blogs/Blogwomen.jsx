@@ -2,9 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { BlogData } from "../../../utils/data";
 
-
 const Blogwomen = () => {
-    const { id } = useParams();
+  const { id } = useParams();
   const blog = BlogData[id];
 
   if (!blog) return <div>Blog not found</div>;
@@ -15,7 +14,7 @@ const Blogwomen = () => {
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-grow p-4 md:p-10">
-      <div
+        <div
           style={{
             display: "flex",
             flexDirection: "column",
