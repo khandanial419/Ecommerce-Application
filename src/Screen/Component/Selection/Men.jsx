@@ -67,32 +67,12 @@ const Men = () => {
         </center>
         <div className="mt-10">
           <TabsComp
-            tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
-            tabLabel2={<span className="text-[#0494b8]">Unstiched</span>}
-            tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
-            tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
+            tabLabel1={
+              <div className="text-center">
+                <span className="text-[#0494b8]">Mens Products</span>
+              </div>
+            }
             contetn1={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Womenproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
-            }
-            contetn2={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Menproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
-            }
-            contetn3={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Womenproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
-            }
-            contetn4={
               <div className="flex flex-wrap justify-center gap-6 my-10">
                 {Womenproducts.map((product, index) => (
                   <BuyCard key={index} product={product} />

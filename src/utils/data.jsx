@@ -248,18 +248,18 @@ export const Menproducts = [
 export const CarisoulData = [
   {
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-    caption: `San Francis`,
+      "https://img.freepik.com/free-photo/young-handsome-man-choosing-clothes-shop_1303-19720.jpg?ga=GA1.1.1261651700.1719417167&semt=ais_user",
+    caption: `DHT Whole Sale`,
   },
   {
     image:
-      "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
-    caption: "Scotland",
+      "https://img.freepik.com/free-photo/elegantly-dressed-bearded-shop-assistant-with-standing-near-mannequin-menswear-store_613910-19737.jpg?ga=GA1.1.1261651700.1719417167",
+    caption: "DHT Whole Sale",
   },
   {
     image:
-      "https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
-    caption: "Darjeeling",
+      "https://img.freepik.com/free-photo/young-man-choosing-cloths-menswear-shop_1303-30814.jpg?ga=GA1.1.1261651700.1719417167",
+    caption: "DHT Whole Sale",
   },
   {
     image:
@@ -335,29 +335,29 @@ export const BlogData = [
 
 export const faqs = [
   {
-    question: "What sizes are available for your clothing items?",
+    question: "What types of clothing do you offer?",
     answer:
-      "We offer a range of sizes from XS to XXL. Please refer to our size chart for detailed measurements to ensure the perfect fit.",
+      "We provide a wide range of clothing for men, women, baby boys, and baby girls.",
   },
   {
-    question: "How can I track my order? ",
+    question: "Are all sizes available? ",
     answer:
-      "Once your order is shipped, we will send you a tracking number via email. You can use this number on our website’s tracking page to check the status of your delivery",
+      "Yes, we offer clothing in all sizes to ensure a perfect fit for everyone.",
   },
   {
-    question: "What is your return policy? ",
+    question: "Where are your products made?",
     answer:
-      "We accept returns within 30 days of purchase. Items must be in their original condition with tags attached. Please visit our returns page for a step-by-step guide on how to return your items.",
+      "Our clothing is proudly made in Pakistan, ensuring high quality and craftsmanship",
   },
   {
-    question: "Do you ship internationally?",
+    question: "Do you follow sustainable practices?",
     answer:
-      "Yes, we ship worldwide! Shipping costs and delivery times vary depending on the destination. Check our shipping policy for more information.",
+      "Yes, we are committed to sustainable practices in our manufacturing processes.",
   },
   {
-    question: "How can I make changes to my order? ",
+    question: "How fast is your delivery service?",
     answer:
-      "If you need to make any changes to your order, please contact our customer service team as soon as possible. We’ll do our best to accommodate your request.",
+      "We offer fast delivery services to ensure you receive your orders promptly.",
   },
   {
     question: "Are there any washing instructions for your clothing?  ",
