@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { TextField, IconButton, InputAdornment } from "@mui/material";
 
 const Signup = () => {
   const [values, setValues] = useState({
@@ -15,6 +16,7 @@ const Signup = () => {
   });
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
@@ -62,6 +64,10 @@ const Signup = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleToggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
   const handleTogglePage = () => {
     setIsLogin(!isLogin);
   };
@@ -73,14 +79,17 @@ const Signup = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-white">
       <div className="w-full max-w-xl p-8 text-center mb-auto">
-        <h2 className="text-2xl font-bold mb-4 text-[#0494b8]">Sign Up</h2>
+        <h2 className="sm:text-4xl text-2xl font-bold sm:mb-10 mb-5 text-[#0494b8]">
+          Register Your Account
+        </h2>
+
         <form onSubmit={handleSubmit} className="w-full">
           <div className="mb-6">
-            <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
-              type="text"
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="First Name"
               name="first_name"
-              placeholder="First Name"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
@@ -88,11 +97,11 @@ const Signup = () => {
             />
           </div>
           <div className="mb-6">
-            <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
-              type="text"
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Last Name"
               name="last_name"
-              placeholder="Last Name"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
@@ -100,44 +109,74 @@ const Signup = () => {
             />
           </div>
           <div className="mb-6">
-            <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
-              type="email"
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Email"
               name="email"
-              placeholder="Email"
+              type="email"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
             />
-          </div>
-          <div className="relative mb-6">
-            <input
-              className="w-full border border-gray-300 rounded px-4 py-2 pr-10 focus:outline-none focus:border-[#0494b8]"
-              type={showPassword ? "text" : "password"}
-              name="password"
-              placeholder="Password"
-              onChange={(e) =>
-                setValues({ ...values, [e.target.name]: e.target.value })
-              }
-              required
-            />
-            <button
-              type="button"
-              className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 focus:outline-none"
-              onClick={handleTogglePasswordVisibility}
-            >
-              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-            </button>
           </div>
           <div className="mb-6">
-            <input
-              className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:border-[#0494b8]"
-              type="password"
-              placeholder="Confirm Password"
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Password"
+              name="password"
+              type={showPassword ? "text" : "password"}
+              onChange={(e) =>
+                setValues({ ...values, [e.target.name]: e.target.value })
+              }
+              required
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleTogglePasswordVisibility}
+                      edge="end"
+                    >
+                      {showPassword ? (
+                        <VisibilityIcon />
+                      ) : (
+                        <VisibilityOffIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </div>
+          <div className="mb-6">
+            <TextField
+              fullWidth
+              variant="outlined"
+              label="Confirm Password"
+              type={showConfirmPassword ? "text" : "password"}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle confirm password visibility"
+                      onClick={handleToggleConfirmPasswordVisibility}
+                      edge="end"
+                    >
+                      {showConfirmPassword ? (
+                        <VisibilityIcon />
+                      ) : (
+                        <VisibilityOffIcon />
+                      )}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
             />
           </div>
           <div className="flex items-center mb-5">

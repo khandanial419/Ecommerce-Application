@@ -95,10 +95,21 @@ const Navbar = () => {
       </List>
       <Divider />
       <List>
-        {["Login", "Register"].map((text) => (
+        {["Login", "Signup"].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>
-              <ListItemText primary={text} />
+              <ListItemText
+                primary={text}
+                sx={{
+                  background: "#0494b8",
+                  color: "white",
+                  fontSize: "20px",
+                  padding: "10px",
+                  borderRadius: "20px",
+                  textAlign: "center",
+                  fontWeight: "bold",
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -185,7 +196,7 @@ const Navbar = () => {
               to="/signup"
               className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
             >
-              Register
+              Signup
             </NavLink>
             <NavLink
               to="#"
