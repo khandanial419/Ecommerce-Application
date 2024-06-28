@@ -6,12 +6,18 @@ import TabsComp from "../../Component/TabsComp";
 
 export default function Product() {
   const [womenProduct, setWoemProducts] = React.useState("");
+  const [menApiProducts, setMenProducts] = React.useState("");
+
   const [loading, setLoading] = React.useState(true);
+  const [page, setPage] = React.useState(1); // Initial page number
+  const pageSize = 10;
+  const [Menpage, setMenPage] = React.useState(10); // Initial page number
+  const pageMenSize = 20;
   React.useEffect(() => {
-    const fetchData = async () => {
+    const fetchDataWomen = async () => {
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/api/products-list?page_size=10"
+          `http://127.0.0.1:8000/api/products-list?page=${page}&page_size=${pageSize}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -24,8 +30,24 @@ export default function Product() {
         setLoading(false); // Set loading to false when data fetching completes
       }
     };
-
-    fetchData();
+    const fetchDataMen = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/api/products-list?page=${Menpage}&page_size=${pageMenSize}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setMenProducts(data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); // Set loading to false when data fetching completes
+      }
+    };
+    fetchDataMen();
+    fetchDataWomen();
   }, []); // Empty dependency array ensures useEffect runs only once after initial render
 
   return (
@@ -41,7 +63,7 @@ export default function Product() {
           tabLabel2="Men"
           tabLabel3="Baby Boy"
           tabLabel4="Baby Girl"
-          content1={
+          contetn1={
             loading ? ( // Render loader if loading is true
               <div className="flex justify-center items-center h-40">
                 <p>Loading...</p>
@@ -59,11 +81,21 @@ export default function Product() {
             )
           }
           contetn2={
-            <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
-              {Menproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
+            loading ? ( // Render loader if loading is true
+              <div className="flex justify-center items-center h-40">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
+                {menApiProducts.length > 0 ? (
+                  menApiProducts.map((product, index) => (
+                    <BuyCard key={index} product={product} />
+                  ))
+                ) : (
+                  <p>No products found.</p>
+                )}
+              </div>
+            )
           }
           contetn3={
             <div className="flex flex-wrap justify-center gap-10 my-10 px-10">

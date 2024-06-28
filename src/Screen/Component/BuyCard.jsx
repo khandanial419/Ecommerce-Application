@@ -14,12 +14,11 @@ const BuyCard = ({ product }) => {
 
   return (
     <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
-      <CardOverflow>
-        <AspectRatio sx={{ minWidth: 200 }}>
-          <img src={image_url} loading="lazy" alt={name} />
-        </AspectRatio>
-      </CardOverflow>
+      {/* <CardOverflow>
+        <AspectRatio sx={{ minWidth: 200 }}></AspectRatio>
+      </CardOverflow> */}
       <CardContent>
+        <img src={image_url} loading="lazy" alt={name} />
         <Typography level="body-xs">{name}</Typography>
         <Link
           href={link}
