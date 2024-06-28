@@ -5,6 +5,25 @@ import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
 
 export default function Product() {
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "http://127.0.0.1:8000/api/products-list?page_size=10"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log(data); // Print the response data to console
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures useEffect runs only once after initial render
+
   return (
     <div className="min-h-screen flex flex-col">
       <div className="mb-auto">

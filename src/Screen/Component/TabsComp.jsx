@@ -5,7 +5,16 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-const TabsComp = ({ tabLabel1, contetn1 }) => {
+const TabsComp = ({
+  tabLabel1,
+  tabLabel2,
+  tabLabel3,
+  tabLabel4,
+  contetn1,
+  contetn2,
+  contetn3,
+  contetn4,
+}) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -27,11 +36,30 @@ const TabsComp = ({ tabLabel1, contetn1 }) => {
           }}
         >
           <Tab label={tabLabel1} />
+          <Tab label={tabLabel2} />
+          <Tab label={tabLabel3} />
+          <Tab label={tabLabel4} />
         </Tabs>
       </Box>
       <div role="tabpanel" hidden={value !== 0}>
         <Box sx={{ p: 3 }}>
           <Typography>{contetn1}</Typography>
+        </Box>
+      </div>
+      <div role="tabpanel" hidden={value !== 1}>
+        <Box sx={{ p: 3 }}>
+          <Typography>{contetn2}</Typography>
+        </Box>
+      </div>
+
+      <div role="tabpanel" hidden={value !== 2}>
+        <Box sx={{ p: 3 }}>
+          <Typography>{contetn3}</Typography>
+        </Box>
+      </div>
+      <div role="tabpanel" hidden={value !== 3}>
+        <Box sx={{ p: 3 }}>
+          <Typography>{contetn4}</Typography>
         </Box>
       </div>
     </Box>

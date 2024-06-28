@@ -29,7 +29,6 @@ const Login = () => {
         // Set user data in cookies
         Cookies.set("user", JSON.stringify(data.user), { expires: 7 });
         navigate("/");
-        navigate(0);
       } else {
         toast.error(data.msgErr);
       }

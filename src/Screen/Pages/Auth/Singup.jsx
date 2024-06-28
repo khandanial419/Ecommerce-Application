@@ -22,18 +22,18 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if passwords match
     if (values.password !== confirmPassword) {
       toast.error("Passwords do not match");
       return;
     }
+
     try {
       const response = await fetch("http://127.0.0.1:8000/api/register", {
         method: "POST",
         headers: {
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
-          "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH",
         },
         body: JSON.stringify({
           first_name: "John",
@@ -43,20 +43,25 @@ const Signup = () => {
         }),
       });
 
-      // try {
-      //   const response = await axios.post(
-      //     "http://localhost:3001/auth/signup",
-      //     values
-      //   );
-      //   if (response.data.success) {
-      //     toast.success(response.data.msg);
-      //     setIsLogin(true);
-      //   } else {
-      //     toast.error(response.data.msg);
-      //   }
-      // }
+      if (!response.ok) {
+        // Handle non-successful responses
+        const errorData = await response.json();
+        toast.error(errorData.msg || "Failed to register");
+        return;
+      }
+
+      // If registration is successful
+      toast.success("Account created successfully!");
+      navigate("/login");
+      // Navigate to another page (you need a routing mechanism for this)
+      // Example using React Router:
+      // history.push('/dashboard'); // Assuming 'history' is available
+
+      // Alternatively, set a flag or state to indicate successful registration
+      // and conditionally render the navigation in your component.
     } catch (error) {
-      toast.error(error.response?.data?.msgErr || "An error occurred");
+      // Handle network errors or other exceptions
+      toast.error(error.response?.data?.msg || "An error occurred");
     }
   };
 

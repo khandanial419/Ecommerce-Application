@@ -57,7 +57,7 @@ const App = () => {
             <Route path="/faq" element={<Faq />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/verify-email/:token" element={<VerifyEmail />} />
+            <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/product" element={<Product />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blogmen/:id" element={<BlogMen />} />
