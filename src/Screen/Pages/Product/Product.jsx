@@ -5,6 +5,8 @@ import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
 
 export default function Product() {
+  const [womenProduct, setWoemProducts] = React.useState("");
+  const [loading, setLoading] = React.useState(true);
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,9 +17,11 @@ export default function Product() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log(data); // Print the response data to console
+        setWoemProducts(data.data);
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); // Set loading to false when data fetching completes
       }
     };
 
@@ -37,12 +41,22 @@ export default function Product() {
           tabLabel2="Men"
           tabLabel3="Baby Boy"
           tabLabel4="Baby Girl"
-          contetn1={
-            <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
+          content1={
+            loading ? ( // Render loader if loading is true
+              <div className="flex justify-center items-center h-40">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
+                {womenProduct.length > 0 ? (
+                  womenProduct.map((product, index) => (
+                    <BuyCard key={index} product={product} />
+                  ))
+                ) : (
+                  <p>No products found.</p>
+                )}
+              </div>
+            )
           }
           contetn2={
             <div className="flex flex-wrap justify-center gap-10 my-10 px-10">

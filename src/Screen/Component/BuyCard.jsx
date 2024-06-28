@@ -8,18 +8,19 @@ import Chip from "@mui/joy/Chip";
 import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+
 const BuyCard = ({ product }) => {
-  const { imageUrl, name, link, price, stock } = product;
+  const { image_url, name, link, price, stock } = product;
 
   return (
     <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
       <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}>
-          <img src={imageUrl} loading="lazy" alt={name} />
+          <img src={image_url} loading="lazy" alt={name} />
         </AspectRatio>
       </CardOverflow>
       <CardContent>
-        <Typography level="body-xs">Bluetooth Headset</Typography>
+        <Typography level="body-xs">{name}</Typography>
         <Link
           href={link}
           fontWeight="md"
@@ -54,4 +55,5 @@ const BuyCard = ({ product }) => {
     </Card>
   );
 };
+
 export default BuyCard;

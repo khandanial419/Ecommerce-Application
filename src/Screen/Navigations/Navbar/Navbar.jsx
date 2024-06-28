@@ -186,18 +186,31 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="hidden md:flex space-x-4">
-            <NavLink
-              to="/login"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
-            >
-              Login
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
-            >
-              Signup
-            </NavLink>
+            {user ? (
+              <NavLink
+                onClick={handleLogout}
+                to="/login"
+                className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to="/signup"
+                  className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
+                >
+                  Signup
+                </NavLink>
+              </>
+            )}
+
             <NavLink
               to="#"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"

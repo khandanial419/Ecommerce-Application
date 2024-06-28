@@ -25,10 +25,12 @@ const Login = () => {
       const { data } = await axios.post("http://127.0.0.1:8000/api/login", {
         ...values,
       });
-      if (data.success) {
+      console.log(data);
+      if (data) {
         // Set user data in cookies
         Cookies.set("user", JSON.stringify(data.user), { expires: 7 });
         navigate("/");
+        toast.success("ok");
       } else {
         toast.error(data.msgErr);
       }
@@ -65,7 +67,7 @@ const Login = () => {
               variant="outlined"
               label="Email"
               type="email"
-              name="Email"
+              name="email"
               onChange={(e) =>
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
