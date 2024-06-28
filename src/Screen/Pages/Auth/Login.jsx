@@ -30,6 +30,7 @@ const Login = () => {
         // Set user data in cookies
         Cookies.set("user", JSON.stringify(data.user), { expires: 7 });
         navigate("/");
+        window.location.reload();
         toast.success("ok");
       } else {
         toast.error(data.msgErr);
