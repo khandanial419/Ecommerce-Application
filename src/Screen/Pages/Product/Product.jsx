@@ -7,17 +7,16 @@ import TabsComp from "../../Component/TabsComp";
 export default function Product() {
   const [womenProduct, setWoemProducts] = React.useState("");
   const [menApiProducts, setMenProducts] = React.useState("");
+  const [BabyBoyProducts, setBabyBoyProducts] = React.useState("");
+  const [BabyGirlProducts, setBabyGirlProducts] = React.useState("");
 
   const [loading, setLoading] = React.useState(true);
-  const [page, setPage] = React.useState(1); // Initial page number
-  const pageSize = 10;
-  const [Menpage, setMenPage] = React.useState(10); // Initial page number
-  const pageMenSize = 20;
+
   React.useEffect(() => {
     const fetchDataWomen = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/products-list?page=${page}&page_size=${pageSize}`
+          `http://127.0.0.1:8000/api/products-list?page_size=10&category_id=1`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -33,7 +32,7 @@ export default function Product() {
     const fetchDataMen = async () => {
       try {
         const response = await fetch(
-          `http://127.0.0.1:8000/api/products-list?page=${Menpage}&page_size=${pageMenSize}`
+          `http://127.0.0.1:8000/api/products-list?page_size=10&category_id=2`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -46,9 +45,44 @@ export default function Product() {
         setLoading(false); // Set loading to false when data fetching completes
       }
     };
+    const fetchdataBabyBoy = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/api/products-list?page_size=10&category_id=3`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        console.log("data of baby boy", data);
+        setBabyBoyProducts(data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); // Set loading to false when data fetching completes
+      }
+    };
+    const fetchdatBabyGirl = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/api/products-list?page_size=10&category_id=4`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setBabyGirlProducts(data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); // Set loading to false when data fetching completes
+      }
+    };
+    fetchdataBabyBoy();
+    fetchdatBabyGirl();
     fetchDataMen();
     fetchDataWomen();
-  }, []); // Empty dependency array ensures useEffect runs only once after initial render
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -98,18 +132,38 @@ export default function Product() {
             )
           }
           contetn3={
-            <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
+            loading ? ( // Render loader if loading is true
+              <div className="flex justify-center items-center h-40">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
+                {BabyBoyProducts.length > 0 ? (
+                  BabyBoyProducts.map((product, index) => (
+                    <BuyCard key={index} product={product} />
+                  ))
+                ) : (
+                  <p>No products found.</p>
+                )}
+              </div>
+            )
           }
           contetn4={
-            <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
-              {Womenproducts.map((product, index) => (
-                <BuyCard key={index} product={product} />
-              ))}
-            </div>
+            loading ? ( // Render loader if loading is true
+              <div className="flex justify-center items-center h-40">
+                <p>Loading...</p>
+              </div>
+            ) : (
+              <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
+                {BabyGirlProducts.length > 0 ? (
+                  BabyGirlProducts.map((product, index) => (
+                    <BuyCard key={index} product={product} />
+                  ))
+                ) : (
+                  <p>No products found.</p>
+                )}
+              </div>
+            )
           }
         />
       </div>
