@@ -247,49 +247,38 @@ export const Menproducts = [
 
 export const CarisoulData = [
   {
-    image:
-      "https://img.freepik.com/free-photo/young-handsome-man-choosing-clothes-shop_1303-19720.jpg?ga=GA1.1.1261651700.1719417167&semt=ais_user",
+    image: "/men1.jpg",
     caption: `DHT Whole Sale`,
   },
   {
-    image:
-      "https://img.freepik.com/free-photo/elegantly-dressed-bearded-shop-assistant-with-standing-near-mannequin-menswear-store_613910-19737.jpg?ga=GA1.1.1261651700.1719417167",
+    image: "/men2.jpg",
     caption: "DHT Whole Sale",
   },
   {
-    image:
-      "https://img.freepik.com/free-photo/young-man-choosing-cloths-menswear-shop_1303-30814.jpg?ga=GA1.1.1261651700.1719417167",
+    image: "/men3.jpg",
     caption: "DHT Whole Sale",
   },
   {
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
+    image: "/men4.jpg",
     caption: "San Francisco",
   },
+];
+export const CarisoulDataWomen = [
   {
-    image:
-      "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-    caption: "Scotland",
+    image: "/women1.jpg",
+    caption: `DHT Whole Sale`,
   },
   {
-    image:
-      "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-    caption: "Darjeeling",
+    image: "/women2.jpg",
+    caption: "DHT Whole Sale",
   },
   {
-    image:
-      "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
+    image: "/women3.jpg",
+    caption: "DHT Whole Sale",
+  },
+  {
+    image: "/women4.jpg",
     caption: "San Francisco",
-  },
-  {
-    image:
-      "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-    caption: "Scotland",
-  },
-  {
-    image:
-      "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-    caption: "Darjeeling",
   },
 ];
 

@@ -8,7 +8,7 @@ import {
   HiOutlineArrowNarrowRight,
 } from "react-icons/hi";
 import { Carousel } from "react-carousel-minimal";
-import { CarisoulData } from "../../../utils/data";
+import { CarisoulDataWomen } from "../../../utils/data";
 
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
@@ -60,10 +60,10 @@ const Women = () => {
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-grow p-4 md:p-10">
         <center>
-          {CarisoulData.length > 0 && (
+          {CarisoulDataWomen.length > 0 && (
             <div style={carouselContainerStyle}>
               <Carousel
-                data={CarisoulData}
+                data={CarisoulDataWomen}
                 time={2000}
                 width="100%"
                 height="500px"
