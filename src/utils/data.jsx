@@ -58,37 +58,37 @@ export const HeaderCardData = [
     title: <ChildCareIcon />,
     subtitle: "Top Qualtiy Fabric",
     description:
-      "At DHT Wholesale Shopping, we prioritize excellence by offering top-quality fabrics for all our clothing lines. Our collection for men, women, baby boys, and baby girls is crafted from premium materials, ensuring comfort, durability, and style. Experience the luxury of superior fabric with every purchase.",
+      "At DHT Wholesale Shopping, we offer top-quality fabric that ensures durability and comfort. Our premium materials cater to men, women, baby boys, and baby girls, providing a luxurious feel and a perfect fit for everyone.",
   },
   {
     title: <ChildCareIcon />,
     subtitle: "All Size Matter",
     description:
-      "We believe in inclusivity at DHT Wholesale Shopping, which is why we cater to all sizes. Our diverse range of sizes ensures that everyone, regardless of body type, can find clothing that fits perfectly and flatters their unique shape. Embrace fashion that celebrates every body.",
+      "We understand that all sizes matter. That’s why our extensive range includes sizes for all body types, ensuring everyone finds their perfect fit. Our inclusive sizing guarantees comfort and style for men, women, and children.",
   },
   {
     title: <ChildCareIcon />,
     subtitle: "Proudly Made in Pakistan",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "Our products are proudly made in Pakistan, reflecting the rich heritage and craftsmanship of our nation. We take pride in supporting local artisans and delivering exceptional quality in every piece.",
   },
   {
     title: <ChildCareIcon />,
     subtitle: "Sustainabale Practices",
     description:
-      "Sustainability is at the heart of DHT Wholesale Shopping. We are committed to eco-friendly practices, from sourcing materials to manufacturing processes. Our dedication to sustainability ensures that our clothing is not only stylish but also kind to the planet. Join us in making a positive impact on the environment.",
+      "Sustainability is at the heart of DHT Wholesale Shopping. We are committed to eco-friendly practices, from sourcing materials to production processes, ensuring our products are kind to the planet.",
   },
   {
     title: <ChildCareIcon />,
     subtitle: "Fast Delivery Services",
     description:
-      "At DHT Wholesale Shopping, we understand the excitement of receiving your new clothes. That's why we offer fast delivery services to ensure your orders reach you promptly. Enjoy a seamless shopping experience with our reliable and efficient delivery system, bringing your favorite pieces right to your doorstep.",
+      "Enjoy fast delivery services with DHT Wholesale Shopping. We ensure that your orders reach you promptly, so you can start enjoying our quality products without delay.",
   },
   {
     title: <ChildCareIcon />,
     subtitle: "Expert Customer Care",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "Our commitment to exceptional customer service ensures a seamless shopping experience. We are here to assist you every step of the way, making your satisfaction our top priority.",
   },
 ];
 
