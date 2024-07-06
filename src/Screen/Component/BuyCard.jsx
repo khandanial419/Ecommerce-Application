@@ -9,7 +9,7 @@ import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-const BuyCard = ({ product }) => {
+const BuyCard = ({ product, hanldeAdd }) => {
   const { image_url, name, link, price, stock } = product;
 
   return (
@@ -47,7 +47,13 @@ const BuyCard = ({ product }) => {
         </Typography>
       </CardContent>
       <CardOverflow className="bg-[#0494b8]">
-        <Button variant="solid" color="" size="lg" className="text-[#fff] ">
+        <Button
+          variant="solid"
+          color=""
+          size="lg"
+          className="text-[#fff] "
+          onClick={() => hanldeAdd(product)}
+        >
           Add to cart
         </Button>
       </CardOverflow>

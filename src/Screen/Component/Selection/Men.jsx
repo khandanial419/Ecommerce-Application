@@ -13,8 +13,11 @@ import { CarisoulData } from "../../../utils/data";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
+import { useDispatch } from "react-redux";
+import { add } from "../../../Redux/CartSlice";
 
 const Men = () => {
+  const dispath = useDispatch();
   const [MenProducts, setMenProduct] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const carouselContainerStyle = {
@@ -55,7 +58,9 @@ const Men = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array ensures this effect runs only once, like componentDidMount
-
+  const hanldeAdd = (product) => {
+    dispath(add(product));
+  };
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-grow p-4 md:p-10">
@@ -106,7 +111,11 @@ const Men = () => {
                 <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
                   {MenProducts.length > 0 ? (
                     MenProducts.map((product, index) => (
-                      <BuyCard key={index} product={product} />
+                      <BuyCard
+                        key={index}
+                        product={product}
+                        hanldeAdd={hanldeAdd}
+                      />
                     ))
                   ) : (
                     <p>No products found.</p>

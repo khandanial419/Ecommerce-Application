@@ -13,6 +13,8 @@ import { CarisoulData } from "../../../utils/data";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
+import { add } from "../../../Redux/CartSlice";
+import { useDispatch } from "react-redux";
 
 const BabyPrince = () => {
   const [BabyPrince, setBabyPrince] = React.useState("");
@@ -55,7 +57,10 @@ const BabyPrince = () => {
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty dependency array ensures this effect runs only once, like componentDidMount
-
+  const dispath = useDispatch();
+  const hanldeAdd = (product) => {
+    dispath(add(product));
+  };
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-grow p-4 md:p-10">
@@ -104,7 +109,11 @@ const BabyPrince = () => {
                 <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
                   {BabyPrince.length > 0 ? (
                     BabyPrince.map((product, index) => (
-                      <BuyCard key={index} product={product} />
+                      <BuyCard
+                        key={index}
+                        product={product}
+                        hanldeAdd={hanldeAdd}
+                      />
                     ))
                   ) : (
                     <p>No products found.</p>

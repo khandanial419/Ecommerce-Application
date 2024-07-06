@@ -47,6 +47,7 @@ const BabyPrince = React.lazy(() =>
 const VerifyOtp = React.lazy(() =>
   import("./Screen/Pages/ForgotPswrd/Verify-otp")
 );
+const CartItem = React.lazy(() => import("./Screen/Pages/Cart/Cart"));
 
 const App = () => {
   return (
@@ -72,6 +73,7 @@ const App = () => {
             <Route path="/blogbabyprince/:id" element={<BlogBabyPrince />} />
             <Route path="/men" element={<Men />} />
             <Route path="/women" element={<Women />} />
+            <Route path="/cart-item" element={<CartItem />} />
             <Route path="/baby-doll" element={<BabyDoll />} />
             <Route path="/baby-prince" element={<BabyPrince />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />

@@ -3,6 +3,8 @@ import CardOnText from "../../Component/CardOnText";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
+import { add } from "../../../Redux/CartSlice";
+import { useDispatch } from "react-redux";
 
 export default function Product() {
   const [womenProduct, setWoemProducts] = React.useState("");
@@ -11,7 +13,10 @@ export default function Product() {
   const [BabyGirlProducts, setBabyGirlProducts] = React.useState("");
 
   const [loading, setLoading] = React.useState(true);
-
+  const dispath = useDispatch();
+  const hanldeAdd = (product) => {
+    dispath(add(product));
+  };
   React.useEffect(() => {
     const fetchDataWomen = async () => {
       try {
@@ -106,7 +111,11 @@ export default function Product() {
               <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
                 {womenProduct.length > 0 ? (
                   womenProduct.map((product, index) => (
-                    <BuyCard key={index} product={product} />
+                    <BuyCard
+                      key={index}
+                      product={product}
+                      hanldeAdd={hanldeAdd}
+                    />
                   ))
                 ) : (
                   <p>No products found.</p>
@@ -123,7 +132,11 @@ export default function Product() {
               <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
                 {menApiProducts.length > 0 ? (
                   menApiProducts.map((product, index) => (
-                    <BuyCard key={index} product={product} />
+                    <BuyCard
+                      key={index}
+                      product={product}
+                      hanldeAdd={hanldeAdd}
+                    />
                   ))
                 ) : (
                   <p>No products found.</p>
@@ -140,7 +153,11 @@ export default function Product() {
               <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
                 {BabyBoyProducts.length > 0 ? (
                   BabyBoyProducts.map((product, index) => (
-                    <BuyCard key={index} product={product} />
+                    <BuyCard
+                      key={index}
+                      product={product}
+                      hanldeAdd={hanldeAdd}
+                    />
                   ))
                 ) : (
                   <p>No products found.</p>
@@ -157,7 +174,11 @@ export default function Product() {
               <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
                 {BabyGirlProducts.length > 0 ? (
                   BabyGirlProducts.map((product, index) => (
-                    <BuyCard key={index} product={product} />
+                    <BuyCard
+                      key={index}
+                      product={product}
+                      hanldeAdd={hanldeAdd}
+                    />
                   ))
                 ) : (
                   <p>No products found.</p>

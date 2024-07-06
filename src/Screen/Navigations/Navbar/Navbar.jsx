@@ -18,13 +18,13 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import Cookies from "js-cookie";
-
+import { useSelector } from "react-redux";
 import HelpIcon from "@mui/icons-material/Help";
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-
+  const items = useSelector((state) => state.cart);
   useEffect(() => {
     const userData = Cookies.get("user");
     if (userData) {
@@ -212,10 +212,11 @@ const Navbar = () => {
             )}
 
             <NavLink
-              to="#"
+              to="/cart-item"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
-              <ShoppingCartIcon size={30} />
+              <ShoppingCartIcon size={20} />
+              <div className="mr-1">:{items.length}</div>
               {/* <span className="ml-1">Cart</span> */}
             </NavLink>
           </div>
