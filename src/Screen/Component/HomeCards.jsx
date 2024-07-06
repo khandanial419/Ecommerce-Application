@@ -23,7 +23,7 @@ const HomeCards = () => {
             <Card
               sx={{
                 bgcolor: "#0494b8",
-                height: 250,
+                height: 300,
               }}
             >
               <CardContent className="text-center bg-[#0494b8]">
@@ -33,7 +33,10 @@ const HomeCards = () => {
                     color: "#fff",
                   }}
                 >
-                  {data.title}
+                  <div className="flex justify-center">
+                    {" "}
+                    <img src={data.title} alt="Fabric" className="h-20 w-40" />
+                  </div>
                 </Typography>
                 <Typography
                   sx={{

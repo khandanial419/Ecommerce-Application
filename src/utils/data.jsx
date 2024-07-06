@@ -55,37 +55,37 @@ export const cardsData = [
 
 export const HeaderCardData = [
   {
-    title: <ChildCareIcon />,
+    title: "/textile.png",
     subtitle: "Top Qualtiy Fabric",
     description:
       "At DHT Wholesale Shopping, we offer top-quality fabric that ensures durability and comfort. Our premium materials cater to men, women, baby boys, and baby girls, providing a luxurious feel and a perfect fit for everyone.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/tshirt.png",
     subtitle: "All Size Matter",
     description:
       "We understand that all sizes matter. That’s why our extensive range includes sizes for all body types, ensuring everyone finds their perfect fit. Our inclusive sizing guarantees comfort and style for men, women, and children.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/madeinPakistan.png",
     subtitle: "Proudly Made in Pakistan",
     description:
       "Our products are proudly made in Pakistan, reflecting the rich heritage and craftsmanship of our nation. We take pride in supporting local artisans and delivering exceptional quality in every piece.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/sustainable.png",
     subtitle: "Sustainabale Practices",
     description:
       "Sustainability is at the heart of DHT Wholesale Shopping. We are committed to eco-friendly practices, from sourcing materials to production processes, ensuring our products are kind to the planet.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/fastDelivery.png",
     subtitle: "Fast Delivery Services",
     description:
       "Enjoy fast delivery services with DHT Wholesale Shopping. We ensure that your orders reach you promptly, so you can start enjoying our quality products without delay.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/customerCare.png",
     subtitle: "Expert Customer Care",
     description:
       "Our commitment to exceptional customer service ensures a seamless shopping experience. We are here to assist you every step of the way, making your satisfaction our top priority.",
