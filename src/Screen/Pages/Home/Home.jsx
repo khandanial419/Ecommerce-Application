@@ -5,8 +5,8 @@ import HomeCards from "../../Component/HomeCards";
 
 const Home = () => {
   return (
-    <div className="flex flex-col min-h-screen"> 
-      <div className="p-4 flex-grow"> 
+    <div className="flex flex-col min-h-screen">
+      <div className="p-4 flex-grow">
         <div className="text-center mb-5">
           <h3 className="text-4xl md:text-6xl text-[#0494b8] font-serif font-bold mb-2">
             DHT

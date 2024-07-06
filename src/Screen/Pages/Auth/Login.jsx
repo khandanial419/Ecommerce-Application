@@ -16,32 +16,50 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const validationErrors = validate(values);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     try {
       const { data } = await axios.post("http://127.0.0.1:8000/api/login", {
         ...values,
       });
       console.log(data);
       if (data) {
-        // Set user data in cookies
         Cookies.set("user", JSON.stringify(data.user), { expires: 7 });
         navigate("/");
         window.location.reload();
-        toast.success("ok");
+        toast.success("Login successful");
       } else {
         toast.error(data.msgErr);
       }
     } catch (error) {
       if (error.response && error.response.data) {
-        toast.error(error.response.data.msgErr);
+        setErrors({ backend: error.response.data.msgErr });
       } else {
         toast.error("An unexpected error occurred");
       }
     }
+  };
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+      errors.email = "Email address is invalid";
+    }
+    if (!values.password) {
+      errors.password = "Password is required";
+    }
+    return errors;
   };
 
   const handleTogglePasswordVisibility = () => {
@@ -73,6 +91,8 @@ const Login = () => {
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
+              error={!!errors.email}
+              helperText={errors.email}
             />
           </div>
           <div className="relative mb-6">
@@ -86,6 +106,8 @@ const Login = () => {
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
+              error={!!errors.password}
+              helperText={errors.password}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -104,16 +126,15 @@ const Login = () => {
                 ),
               }}
             />
-
-            <button
-              type="button"
-              className="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 focus:outline-none"
-              onClick={handleTogglePasswordVisibility}
-            >
-              {showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />}
-            </button>
           </div>
-          <a href="#" className="text-[#0494b8] mb-4 block">
+          {errors.backend && (
+            <p className="text-red-500 mb-4">{errors.backend}</p>
+          )}
+          <a
+            href="#"
+            className="text-[#0494b8] mb-4 block"
+            onClick={() => navigate("/forgot-password")}
+          >
             Forgot Password?
           </a>
           <button

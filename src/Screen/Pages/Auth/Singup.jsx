@@ -17,52 +17,55 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [errors, setErrors] = useState({});
   const [isLogin, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if passwords match
-    if (values.password !== confirmPassword) {
-      toast.error("Passwords do not match");
+    const validationErrors = validate(values, confirmPassword);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
       return;
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          first_name: "John",
-          last_name: "Doe",
-          email: values.email,
-          password: values.password,
-        }),
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+        first_name: values.first_name,
+        last_name: values.last_name,
+        email: values.email,
+        password: values.password,
       });
 
-      if (!response.ok) {
-        // Handle non-successful responses
-        const errorData = await response.json();
-        toast.error(errorData.msg || "Failed to register");
-        return;
+      if (response.data && response.data.msg) {
+        toast.success(response.data.msg);
+        navigate("/login");
       }
-
-      // If registration is successful
-      toast.success("Account created successfully!");
-      navigate("/login");
-      // Navigate to another page (you need a routing mechanism for this)
-      // Example using React Router:
-      // history.push('/dashboard'); // Assuming 'history' is available
-
-      // Alternatively, set a flag or state to indicate successful registration
-      // and conditionally render the navigation in your component.
     } catch (error) {
-      // Handle network errors or other exceptions
-      toast.error(error.response?.data?.msg || "An error occurred");
+      if (error.response && error.response.data) {
+        setErrors({
+          backend:
+            error.response.data.msg || error.response.data.errors.email[0],
+        });
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
+  };
+
+  const validate = (values, confirmPassword) => {
+    const errors = {};
+    if (!values.first_name) errors.first_name = "First Name is required";
+    if (!values.last_name) errors.last_name = "Last Name is required";
+    if (!values.email) errors.email = "Email is required";
+    if (!/\S+@\S+\.\S+/.test(values.email))
+      errors.email = "Email address is invalid";
+    if (!values.password) errors.password = "Password is required";
+    if (values.password.length < 8)
+      errors.password = "Password must be at least 8 characters";
+    if (values.password !== confirmPassword)
+      errors.confirmPassword = "Passwords do not match";
+    return errors;
   };
 
   const handleTogglePasswordVisibility = () => {
@@ -78,7 +81,7 @@ const Signup = () => {
   };
 
   if (isLogin) {
-    navigate("/login"); // Redirect to the login page
+    navigate("/login");
   }
 
   return (
@@ -99,6 +102,8 @@ const Signup = () => {
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
+              error={!!errors.first_name}
+              helperText={errors.first_name}
             />
           </div>
           <div className="mb-6">
@@ -111,6 +116,8 @@ const Signup = () => {
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
+              error={!!errors.last_name}
+              helperText={errors.last_name}
             />
           </div>
           <div className="mb-6">
@@ -124,6 +131,8 @@ const Signup = () => {
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
+              error={!!errors.email}
+              helperText={errors.email}
             />
           </div>
           <div className="mb-6">
@@ -137,6 +146,8 @@ const Signup = () => {
                 setValues({ ...values, [e.target.name]: e.target.value })
               }
               required
+              error={!!errors.password}
+              helperText={errors.password}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -165,6 +176,8 @@ const Signup = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
+              error={!!errors.confirmPassword}
+              helperText={errors.confirmPassword}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -184,7 +197,10 @@ const Signup = () => {
               }}
             />
           </div>
-          <div className="flex items-center mb-5">
+          {errors.backend && (
+            <p className="text-red-500 mb-4">{errors.backend}</p>
+          )}
+          <div className="flex items-center mb-5 justify-center">
             <input
               type="checkbox"
               name="is_term_and_condition_accepted"
