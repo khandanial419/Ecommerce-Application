@@ -8,10 +8,19 @@ import Chip from "@mui/joy/Chip";
 import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 const BuyCard = ({ product, hanldeAdd }) => {
   const { image_url, name, link, price, stock } = product;
-
+  const navigate = useNavigate();
+  const handleAddtoCart = (product) => {
+    const userData = Cookies.get("user");
+    if (!userData) {
+      navigate("/login");
+    } else {
+      hanldeAdd(product);
+    }
+  };
   return (
     <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
       {/* <CardOverflow>
@@ -52,7 +61,7 @@ const BuyCard = ({ product, hanldeAdd }) => {
           color=""
           size="lg"
           className="text-[#fff] "
-          onClick={() => hanldeAdd(product)}
+          onClick={() => handleAddtoCart(product)}
         >
           Add to cart
         </Button>

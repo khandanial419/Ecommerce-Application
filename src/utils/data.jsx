@@ -284,40 +284,39 @@ export const CarisoulDataWomen = [
 
 export const BlogData = [
   {
-    title: "London House Removals: What to Look for in a Removal Company",
+    title: "The Benefits of Wholesale Shopping",
     content:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      "Discover how wholesale shopping can save you money and offer a variety of products.",
     moreContent:
       "More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
+    image: "/Benefitsofwholesale.png",
     date: "2024-06-30",
   },
   {
-    title: "London House Removals: What to Look for in a Removal Company",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Tips for Successful Wholesale Buying",
+    content:
+      "Learn the best strategies to make the most out of your wholesale purchases.",
     moreContent:
       "More content for card 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:
-      "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
+    image: "/Tips for Successful Wholesale Buying.png",
     date: "2024-06-30",
   },
   {
-    title: "London House Removals: What to Look for in a Removal Company",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "Sustainable Practices in Wholesale Shopping",
+    content:
+      "Explore how wholesale shopping can contribute to a more sustainable future.",
     moreContent:
       "More content for card 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:
-      "https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
+    image: "/Sustainable Practices in Wholesale Shopping.png",
     date: "2024-06-30",
   },
   {
-    title: "London House Removals: What to Look for in a Removal Company",
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    title: "The Future of Wholesale Shopping",
+    content:
+      "Stay ahead of the trends shaping the future of wholesale shopping.",
     moreContent:
       "More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
+    image: "/The Future of Wholesale Shopping.png",
     date: "2024-06-30",
   },
 ];
