@@ -1,13 +1,55 @@
 import React from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import callicon from "../../../assets/callicon.png";
 import mailicon from "../../../assets/mailIcon.png";
 import location from "../../../assets/locationIcon.png";
 import clockIcon from "../../../assets/clockIcon.png";
-
-const index = () => {
+import axios from "axios";
+import { ToastContainer } from "react-toastify";
+const Index = () => {
   React.useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [Name, setName] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [subject, setSubject] = React.useState("");
+  const [message, setMessage] = React.useState("");
+
+  const handleSendMessage = async () => {
+    console.log("This is name", Name);
+    console.log("This is email", email);
+    console.log("This is subject", subject);
+    console.log("This is message", message);
+
+    try {
+      const response = await ApiSendMessage(Name, email, message, subject);
+      console.log("Message sent successfully!", response.message);
+      toast.success(response.message); // Show success toast
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message. Please try again."); // Show error toast
+    }
+  };
+
+  const ApiSendMessage = async (name, email, message, subject) => {
+    const url = "http://127.0.0.1:8000/api/contact-us";
+
+    try {
+      const response = await axios.post(url, {
+        name: name,
+        email: email,
+        message: message,
+        subject: subject,
+      });
+
+      return response.data; // Return data or handle further
+    } catch (error) {
+      throw error; // Throw error to handle it further up the call stack
+    }
+  };
+
   return (
     <div className="p-4 sm:p-3">
       <div className="sm:p-10 p-0">
@@ -21,6 +63,8 @@ const index = () => {
                 <p className="mb-4">Your Name</p>
                 <input
                   type="text"
+                  value={Name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full border border-gray-300 h-[52px] rounded-[8px] p-2 bg-[#F5F5F5]"
                 />
               </div>
@@ -29,6 +73,8 @@ const index = () => {
                   <p className="mb-4">Email</p>
                   <input
                     type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className="w-full border border-gray-300 h-[52px] rounded-[8px] p-2 bg-[#F5F5F5]"
                   />
                 </div>
@@ -36,15 +82,24 @@ const index = () => {
                   <p className="mb-4">Subject</p>
                   <input
                     type="text"
+                    value={subject}
+                    onChange={(e) => setSubject(e.target.value)}
                     className="w-full border border-gray-300 h-[52px] rounded-[8px] p-2 bg-[#F5F5F5]"
                   />
                 </div>
               </div>
               <div className="mb-10">
                 <p className="mb-4">Message</p>
-                <textarea className="w-full border border-gray-300 h-[160px] bg-[#F5F5F5] rounded-[8px] p-2"></textarea>
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className="w-full border border-gray-300 h-[160px] bg-[#F5F5F5] rounded-[8px] p-2"
+                ></textarea>
               </div>
-              <button className="bg-[#0494b8] py-[16px] px-[24px] w-full text-white text-lg rounded-lg">
+              <button
+                onClick={handleSendMessage}
+                className="bg-[#0494b8] py-[16px] px-[24px] w-full text-white text-lg rounded-lg"
+              >
                 Send message
               </button>
             </div>
@@ -102,8 +157,9 @@ const index = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
 
-export default index;
+export default Index;
