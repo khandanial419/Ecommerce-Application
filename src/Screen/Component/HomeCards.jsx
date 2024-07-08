@@ -11,7 +11,7 @@ const HomeCards = () => {
       {/* First row with inline text */}
       <div className="flex items-center justify-center mb-8 ">
         <div className="border-b border-white-400 w-16 mr-4"></div>
-        <h1 className="text-3xl font-bold text-center text-[#0494b8] font-serif">
+        <h1 className="text-3xl font-bold text-center text-black font-serif">
           A FASHION HUB FOR ALL MASEES
         </h1>
         <div className="border-b border-white-400 w-16 ml-4"></div>
@@ -35,7 +35,11 @@ const HomeCards = () => {
                 >
                   <div className="flex justify-center">
                     {" "}
-                    <img src={data.title} alt="Fabric" className="h-20 w-40" />
+                    <img
+                      src={data.title}
+                      alt="Fabric"
+                      className="h-20 w-40 hover:cursor-pointer"
+                    />
                   </div>
                 </Typography>
                 <Typography
