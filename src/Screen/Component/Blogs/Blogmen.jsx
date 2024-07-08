@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import { BlogData } from "../../../utils/data";
 
 const Blogmen = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { id } = useParams();
   const blog = BlogData[id];
 

@@ -5,7 +5,9 @@ import { BlogData } from "../../../utils/data";
 const Blogbabydoll = () => {
   const { id } = useParams();
   const blog = BlogData[id];
-
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   if (!blog) return <div>Blog not found</div>;
 
   const dateObject = new Date(blog.date);

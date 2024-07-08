@@ -8,6 +8,9 @@ const Faq = () => {
   const handleToggle = (index) => {
     setExpanded(expanded === index ? null : index);
   };
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col justify-between">

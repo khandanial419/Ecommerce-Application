@@ -128,7 +128,7 @@ const Index = () => {
             <div className="text-[#383939] overflow-wrap break-word">
               <p className="text-sm whitespace-normal ">
                 <span className="break-all sm:break-keep">
-                  DHT&WholsaleProducts@gmail.com
+                  DHTWholsale@gmail.com
                 </span>
               </p>
             </div>

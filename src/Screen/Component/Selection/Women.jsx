@@ -36,6 +36,9 @@ const Women = () => {
     fontWeight: "bold",
   };
   React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  React.useEffect(() => {
     const fetchDataWoMen = async () => {
       try {
         const response = await fetch(

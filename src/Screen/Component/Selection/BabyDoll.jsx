@@ -17,6 +17,9 @@ import { useDispatch } from "react-redux";
 import { add } from "../../../Redux/CartSlice";
 
 const BabyDoll = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [BabyDoll, setBabyDoll] = React.useState("");
   const [loading, setLoading] = React.useState(false);
   const carouselContainerStyle = {

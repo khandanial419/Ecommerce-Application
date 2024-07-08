@@ -3,8 +3,20 @@ import JoYCard from "../../Component/JoYCard";
 import { cardsData } from "../../../utils/data";
 import HomeCards from "../../Component/HomeCards";
 import { TextField } from "@mui/material";
-
+import { toast, ToastContainer } from "react-toastify";
+import { useSelector } from "react-redux";
+import "react-toastify/dist/ReactToastify.css";
 const Home = () => {
+  const userName = useSelector((state) => state.user.name);
+  // React.useEffect(() => {
+  //   if (userName) {
+  //     toast.success(`Welcome to our website, ${userName}!`);
+  //     window.location.reload();
+  //   }
+  // }, [userName]);
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-col min-h-screen">
       <div className="p-4 flex-grow">
@@ -23,6 +35,7 @@ const Home = () => {
 
         <HomeCards />
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Paper, Typography, Box } from "@mui/material";
 
 const Privacy_policy = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-grow p-4 md:p-10">

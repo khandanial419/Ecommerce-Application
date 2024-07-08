@@ -9,8 +9,13 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import "react-toastify/dist/ReactToastify.css";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
-
+import { setName } from "../../../Redux/UserSlice";
+import { useDispatch } from "react-redux";
 const Login = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [values, setValues] = useState({
     email: "",
@@ -21,6 +26,7 @@ const Login = () => {
   const [isSignup, setIsSignup] = useState(false);
 
   const handleSubmit = async (e) => {
+    dispatch(setName(values.email));
     e.preventDefault();
     const validationErrors = validate(values);
     if (Object.keys(validationErrors).length > 0) {

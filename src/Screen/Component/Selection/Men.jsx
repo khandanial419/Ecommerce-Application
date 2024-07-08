@@ -17,6 +17,9 @@ import { useDispatch } from "react-redux";
 import { add } from "../../../Redux/CartSlice";
 
 const Men = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const dispath = useDispatch();
   const [MenProducts, setMenProduct] = React.useState("");
   const [loading, setLoading] = React.useState(false);

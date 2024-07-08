@@ -8,6 +8,9 @@ import axios from "axios";
 import { TextField, IconButton, InputAdornment } from "@mui/material";
 
 const Signup = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const [values, setValues] = useState({
     first_name: "",
     last_name: "",

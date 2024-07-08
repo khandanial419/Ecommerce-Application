@@ -13,6 +13,9 @@ import {
 } from "@mui/material";
 
 const Term_service = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div
       style={{
