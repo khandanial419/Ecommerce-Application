@@ -55,40 +55,40 @@ export const cardsData = [
 
 export const HeaderCardData = [
   {
-    title: <ChildCareIcon />,
+    title: "/textile.png",
     subtitle: "Top Qualtiy Fabric",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "At DHT Wholesale Shopping, we offer top-quality fabric that ensures durability and comfort. Our premium materials cater to men, women, baby boys, and baby girls, providing a luxurious feel and a perfect fit for everyone.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/tshirt.png",
     subtitle: "All Size Matter",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "We understand that all sizes matter. That’s why our extensive range includes sizes for all body types, ensuring everyone finds their perfect fit. Our inclusive sizing guarantees comfort and style for men, women, and children.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/madeinPakistan.png",
     subtitle: "Proudly Made in Pakistan",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "Our products are proudly made in Pakistan, reflecting the rich heritage and craftsmanship of our nation. We take pride in supporting local artisans and delivering exceptional quality in every piece.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/sustainable.png",
     subtitle: "Sustainabale Practices",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "Sustainability is at the heart of DHT Wholesale Shopping. We are committed to eco-friendly practices, from sourcing materials to production processes, ensuring our products are kind to the planet.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/fastDelivery.png",
     subtitle: "Fast Delivery Services",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "Enjoy fast delivery services with DHT Wholesale Shopping. We ensure that your orders reach you promptly, so you can start enjoying our quality products without delay.",
   },
   {
-    title: <ChildCareIcon />,
+    title: "/customerCare.png",
     subtitle: "Expert Customer Care",
     description:
-      "Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit.Description 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elitDescription 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "Our commitment to exceptional customer service ensures a seamless shopping experience. We are here to assist you every step of the way, making your satisfaction our top priority.",
   },
 ];
 
@@ -247,108 +247,109 @@ export const Menproducts = [
 
 export const CarisoulData = [
   {
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-    caption: `San Francis`,
+    image: "/men1.jpg",
+    caption: `DHT Whole Sale`,
   },
   {
-    image:
-      "https://cdn.britannica.com/s:800x450,c:crop/35/204435-138-2F2B745A/Time-lapse-hyper-lapse-Isle-Skye-Scotland.jpg",
-    caption: "Scotland",
+    image: "/men2.jpg",
+    caption: "DHT Whole Sale",
   },
   {
-    image:
-      "https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
-    caption: "Darjeeling",
+    image: "/men3.jpg",
+    caption: "DHT Whole Sale",
   },
   {
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
+    image: "/men4.jpg",
     caption: "San Francisco",
   },
+];
+export const CarisoulDataWomen = [
   {
-    image:
-      "https://i.natgeofe.com/n/f7732389-a045-402c-bf39-cb4eda39e786/scotland_travel_4x3.jpg",
-    caption: "Scotland",
+    image: "/women1.jpg",
+    caption: `DHT Whole Sale`,
   },
   {
-    image:
-      "https://www.tusktravel.com/blog/wp-content/uploads/2020/07/Best-Time-to-Visit-Darjeeling-for-Honeymoon.jpg",
-    caption: "Darjeeling",
+    image: "/women2.jpg",
+    caption: "DHT Whole Sale",
   },
   {
-    image:
-      "https://www.omm.com/~/media/images/site/locations/san_francisco_780x520px.ashx",
+    image: "/women3.jpg",
+    caption: "DHT Whole Sale",
+  },
+  {
+    image: "/women4.jpg",
     caption: "San Francisco",
-  },
-  {
-    image:
-      "https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-    caption: "Scotland",
-  },
-  {
-    image:
-      "https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/02/summer-7.jpg",
-    caption: "Darjeeling",
   },
 ];
 
-
-
 export const BlogData = [
   {
-    title:"London House Removals: What to Look for in a Removal Company",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    moreContent:"More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/GoldenGateBridge-001.jpg/1200px-GoldenGateBridge-001.jpg",
-    date:"2024-06-30",
+    title: "The Benefits of Wholesale Shopping",
+    content:
+      "Discover how wholesale shopping can save you money and offer a variety of products.",
+    moreContent:
+      "More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/Benefitsofwholesale.png",
+    date: "2024-06-30",
   },
   {
-    title:"London House Removals: What to Look for in a Removal Company",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    moreContent:"More content for card 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:"https://images.ctfassets.net/bth3mlrehms2/6Ypj2Qd3m3jQk6ygmpsNAM/61d2f8cb9f939beed918971b9bc59bcd/Scotland.jpg?w=750&h=422&fl=progressive&q=50&fm=jpg",
-    date:"2024-06-30",
+    title: "Tips for Successful Wholesale Buying",
+    content:
+      "Learn the best strategies to make the most out of your wholesale purchases.",
+    moreContent:
+      "More content for card 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/Tips for Successful Wholesale Buying.png",
+    date: "2024-06-30",
   },
   {
-    title:"London House Removals: What to Look for in a Removal Company",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    moreContent:"More content for card 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:"https://static2.tripoto.com/media/filter/tst/img/735873/TripDocument/1537686560_1537686557954.jpg",
-    date:"2024-06-30",
+    title: "Sustainable Practices in Wholesale Shopping",
+    content:
+      "Explore how wholesale shopping can contribute to a more sustainable future.",
+    moreContent:
+      "More content for card 3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/Sustainable Practices in Wholesale Shopping.png",
+    date: "2024-06-30",
   },
   {
-    title:"London House Removals: What to Look for in a Removal Company",
-    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    moreContent:"More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Palace_of_Fine_Arts_%2816794p%29.jpg/1200px-Palace_of_Fine_Arts_%2816794p%29.jpg",
-    date:"2024-06-30",
-  }
-]
+    title: "The Future of Wholesale Shopping",
+    content:
+      "Stay ahead of the trends shaping the future of wholesale shopping.",
+    moreContent:
+      "More content for card 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    image: "/The Future of Wholesale Shopping.png",
+    date: "2024-06-30",
+  },
+];
 
 export const faqs = [
   {
-    question: "What sizes are available for your clothing items?",
-    answer: "We offer a range of sizes from XS to XXL. Please refer to our size chart for detailed measurements to ensure the perfect fit.",
+    question: "What types of clothing do you offer?",
+    answer:
+      "We provide a wide range of clothing for men, women, baby boys, and baby girls.",
   },
   {
-    question: "How can I track my order? ",
-    answer: "Once your order is shipped, we will send you a tracking number via email. You can use this number on our website’s tracking page to check the status of your delivery",
+    question: "Are all sizes available? ",
+    answer:
+      "Yes, we offer clothing in all sizes to ensure a perfect fit for everyone.",
   },
   {
-    question: "What is your return policy? ",
-    answer: "We accept returns within 30 days of purchase. Items must be in their original condition with tags attached. Please visit our returns page for a step-by-step guide on how to return your items.",
+    question: "Where are your products made?",
+    answer:
+      "Our clothing is proudly made in Pakistan, ensuring high quality and craftsmanship",
   },
   {
-    question: "Do you ship internationally?",
-    answer: "Yes, we ship worldwide! Shipping costs and delivery times vary depending on the destination. Check our shipping policy for more information.",
+    question: "Do you follow sustainable practices?",
+    answer:
+      "Yes, we are committed to sustainable practices in our manufacturing processes.",
   },
   {
-    question: "How can I make changes to my order? ",
-    answer: "If you need to make any changes to your order, please contact our customer service team as soon as possible. We’ll do our best to accommodate your request.",
+    question: "How fast is your delivery service?",
+    answer:
+      "We offer fast delivery services to ensure you receive your orders promptly.",
   },
   {
     question: "Are there any washing instructions for your clothing?  ",
-    answer: "Yes, each item comes with specific washing instructions. Generally, we recommend washing our clothes in cold water with similar colors and hanging them to dry.",
+    answer:
+      "Yes, each item comes with specific washing instructions. Generally, we recommend washing our clothes in cold water with similar colors and hanging them to dry.",
   },
 ];

@@ -2,6 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Navigation } from "swiper/modules";
 import "swiper/css/navigation";
+import * as React from "react";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,
@@ -12,8 +13,16 @@ import { CarisoulData } from "../../../utils/data";
 import BuyCard from "../../Component/BuyCard";
 import { Womenproducts, Menproducts } from "../../../utils/data";
 import TabsComp from "../../Component/TabsComp";
+import { useDispatch } from "react-redux";
+import { add } from "../../../Redux/CartSlice";
 
 const Men = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const dispath = useDispatch();
+  const [MenProducts, setMenProduct] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
   const carouselContainerStyle = {
     maxWidth: "100%",
     margin: "0 auto",
@@ -30,7 +39,31 @@ const Men = () => {
     fontSize: "20px",
     fontWeight: "bold",
   };
+  React.useEffect(() => {
+    const fetchDataMen = async () => {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:8000/api/products-list?page_size=10&category_id=2`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setMenProduct(data.data); // Assuming data.data contains the array of products
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false); // Set loading to false when data fetching completes
+      }
+    };
 
+    fetchDataMen(); // Call the fetchDataMen function when the component mounts
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty dependency array ensures this effect runs only once, like componentDidMount
+  const hanldeAdd = (product) => {
+    dispath(add(product));
+  };
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-grow p-4 md:p-10">
@@ -67,37 +100,31 @@ const Men = () => {
         </center>
         <div className="mt-10">
           <TabsComp
-            tabLabel1={<span className="text-[#0494b8]">Stiched</span>}
-            tabLabel2={<span className="text-[#0494b8]">Unstiched</span>}
-            tabLabel3={<span className="text-[#0494b8]">T-shirt</span>}
-            tabLabel4={<span className="text-[#0494b8]">Jeans</span>}
+            tabLabel1={
+              <div className="flex justify-center items-center">
+                <span className="text-[#0494b8]">Mens Products</span>
+              </div>
+            }
             contetn1={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Womenproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
-            }
-            contetn2={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Menproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
-            }
-            contetn3={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Womenproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
-            }
-            contetn4={
-              <div className="flex flex-wrap justify-center gap-6 my-10">
-                {Womenproducts.map((product, index) => (
-                  <BuyCard key={index} product={product} />
-                ))}
-              </div>
+              loading ? ( // Render loader if loading is true
+                <div className="flex justify-center items-center h-40">
+                  <p>Loading...</p>
+                </div>
+              ) : (
+                <div className="flex flex-wrap justify-center gap-10 my-10 px-10">
+                  {MenProducts.length > 0 ? (
+                    MenProducts.map((product, index) => (
+                      <BuyCard
+                        key={index}
+                        product={product}
+                        hanldeAdd={hanldeAdd}
+                      />
+                    ))
+                  ) : (
+                    <p>No products found.</p>
+                  )}
+                </div>
+              )
             }
           />
         </div>

@@ -20,6 +20,7 @@ const TabsComp = ({
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   return (
     <Box sx={{ width: "100%", textAlign: "center" }}>
       <Box
@@ -35,34 +36,55 @@ const TabsComp = ({
             justifyContent: "center",
           }}
         >
-          <Tab label={tabLabel1} />
-          <Tab label={tabLabel2} />
-          <Tab label={tabLabel3} />
-          <Tab label={tabLabel4} />
+          {tabLabel1 && <Tab label={tabLabel1} />}
+          {tabLabel2 && <Tab label={tabLabel2} />}
+          {tabLabel3 && <Tab label={tabLabel3} />}
+          {tabLabel4 && <Tab label={tabLabel4} />}
         </Tabs>
       </Box>
+
       <div role="tabpanel" hidden={value !== 0}>
         <Box sx={{ p: 3 }}>
           <Typography>{contetn1}</Typography>
         </Box>
       </div>
-      <div role="tabpanel" hidden={value !== 1}>
-        <Box sx={{ p: 3 }}>
-          <Typography>{contetn2}</Typography>
-        </Box>
-      </div>
 
-      <div role="tabpanel" hidden={value !== 2}>
-        <Box sx={{ p: 3 }}>
-          <Typography>{contetn3}</Typography>
-        </Box>
-      </div>
-      <div role="tabpanel" hidden={value !== 3}>
-        <Box sx={{ p: 3 }}>
-          <Typography>{contetn4}</Typography>
-        </Box>
-      </div>
+      {tabLabel2 && (
+        <div role="tabpanel" hidden={value !== 1}>
+          <Box sx={{ p: 3 }}>
+            <Typography>{contetn2}</Typography>
+          </Box>
+        </div>
+      )}
+
+      {tabLabel3 && (
+        <div role="tabpanel" hidden={value !== 2}>
+          <Box sx={{ p: 3 }}>
+            <Typography>{contetn3}</Typography>
+          </Box>
+        </div>
+      )}
+
+      {tabLabel4 && (
+        <div role="tabpanel" hidden={value !== 3}>
+          <Box sx={{ p: 3 }}>
+            <Typography>{contetn4}</Typography>
+          </Box>
+        </div>
+      )}
     </Box>
   );
 };
+
+TabsComp.propTypes = {
+  tabLabel1: PropTypes.node.isRequired,
+  contetn1: PropTypes.node.isRequired,
+  tabLabel2: PropTypes.node,
+  contetn2: PropTypes.node,
+  tabLabel3: PropTypes.node,
+  contetn3: PropTypes.node,
+  tabLabel4: PropTypes.node,
+  contetn4: PropTypes.node,
+};
+
 export default TabsComp;

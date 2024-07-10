@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { Grid } from "@mui/material";
-
+import * as React from "react";
 const About = () => {
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <div className="min-h-screen flex flex-col"> 
-      <div className="mb-auto"> 
+    <div className="min-h-screen flex flex-col">
+      <div className="mb-auto">
         {/* Header Section */}
         <div className="bg-white h-auto w-full mb-10">
           <div className="px-3 sm:px-0">
@@ -39,8 +42,8 @@ const About = () => {
               </h2>
               <p className="small text-[14px] sm:text-[17px]">
                 DHT Wholesale Market was founded on the principles of integrity
-                and reliability. Drawing from decades of collective experience in
-                wholesale distribution, our journey began with a vision to
+                and reliability. Drawing from decades of collective experience
+                in wholesale distribution, our journey began with a vision to
                 streamline the procurement process for businesses of all sizes.
                 Since our inception, we have been dedicated to providing an
                 extensive range of high-quality products at competitive prices.
@@ -62,11 +65,11 @@ const About = () => {
                 At DHT Wholesale Market, our mission is to empower businesses to
                 thrive by delivering exceptional wholesale solutions. We
                 understand the importance of access to reliable products and
-                strive to exceed our customers' expectations through unparalleled
-                service, efficiency, and innovation. With a focus on customer
-                satisfaction and long-term partnerships, we are committed to being
-                the preferred choice for wholesale needs across diverse market
-                segments
+                strive to exceed our customers' expectations through
+                unparalleled service, efficiency, and innovation. With a focus
+                on customer satisfaction and long-term partnerships, we are
+                committed to being the preferred choice for wholesale needs
+                across diverse market segments
               </p>
             </div>
           </Grid>
@@ -84,9 +87,9 @@ const About = () => {
                 teamwork is paramount.
                 <span className="text-[#0494b8] font-semibold">
                   {" "}
-                  We believe in transparency and open communication, ensuring that
-                  every interaction with our team is characterized by respect and
-                  trust.
+                  We believe in transparency and open communication, ensuring
+                  that every interaction with our team is characterized by
+                  respect and trust.
                 </span>{" "}
                 By prioritizing the well-being of our employees, customers, and
                 communities, we cultivate a culture of excellence that drives us
@@ -99,7 +102,9 @@ const About = () => {
         {/* Call to Action Section */}
         <div class="text-center px-10">
           <h2 className="text-[15px] sm:text-[12px] lg:text-[25px] text-[#0494b8] font-Claris-sans font-bold mb-5">
-            Join us at DHT Wholesale Market and experience the difference in wholesale excellence. Together, let's build a future of success and prosperity.
+            Join us at DHT Wholesale Market and experience the difference in
+            wholesale excellence. Together, let's build a future of success and
+            prosperity.
           </h2>
           <div className="mt-5 flex justify-center">
             <Link
@@ -118,7 +123,7 @@ const About = () => {
           </h2>
           <div className="mt-8 flex justify-center">
             <Link
-              to={"/contact-us"}
+              to={"/contactus"}
               className="text-[#0494b8]  font-bold bg-white rounded-full px-7 py-2"
             >
               We are here to help you

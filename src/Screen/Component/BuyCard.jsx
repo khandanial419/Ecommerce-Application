@@ -8,18 +8,27 @@ import Chip from "@mui/joy/Chip";
 import Link from "@mui/joy/Link";
 import Typography from "@mui/joy/Typography";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-const BuyCard = ({ product }) => {
-  const { imageUrl, name, link, price, stock } = product;
-
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+const BuyCard = ({ product, hanldeAdd }) => {
+  const { image_url, name, link, price, stock } = product;
+  const navigate = useNavigate();
+  const handleAddtoCart = (product) => {
+    const userData = Cookies.get("user");
+    if (!userData) {
+      navigate("/login");
+    } else {
+      hanldeAdd(product);
+    }
+  };
   return (
     <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
-      <CardOverflow>
-        <AspectRatio sx={{ minWidth: 200 }}>
-          <img src={imageUrl} loading="lazy" alt={name} />
-        </AspectRatio>
-      </CardOverflow>
+      {/* <CardOverflow>
+        <AspectRatio sx={{ minWidth: 200 }}></AspectRatio>
+      </CardOverflow> */}
       <CardContent>
-        <Typography level="body-xs">Bluetooth Headset</Typography>
+        <img src={image_url} loading="lazy" alt={name} />
+        <Typography level="body-xs">{name}</Typography>
         <Link
           href={link}
           fontWeight="md"
@@ -47,11 +56,18 @@ const BuyCard = ({ product }) => {
         </Typography>
       </CardContent>
       <CardOverflow className="bg-[#0494b8]">
-        <Button variant="solid" color="" size="lg" className="text-[#fff] ">
+        <Button
+          variant="solid"
+          color=""
+          size="lg"
+          className="text-[#fff] "
+          onClick={() => handleAddtoCart(product)}
+        >
           Add to cart
         </Button>
       </CardOverflow>
     </Card>
   );
 };
+
 export default BuyCard;

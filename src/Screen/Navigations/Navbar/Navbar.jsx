@@ -18,13 +18,13 @@ import ImportContactsIcon from "@mui/icons-material/ImportContacts";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import Cookies from "js-cookie";
-
+import { useSelector } from "react-redux";
 import HelpIcon from "@mui/icons-material/Help";
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
-
+  const items = useSelector((state) => state.cart);
   useEffect(() => {
     const userData = Cookies.get("user");
     if (userData) {
@@ -39,7 +39,10 @@ const Navbar = () => {
   };
 
   const toggleDrawer = (open) => (event) => {
-    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
       return;
     }
     setIsDrawerOpen(open);
@@ -70,12 +73,19 @@ const Navbar = () => {
                 to={`/${text.replace(/\s+/g, "").toLowerCase()}`}
               >
                 <ListItemIcon>
-                  {index === 0 ? <HomeIcon /> : 
-                   index === 1 ? <InventoryIcon /> : 
-                   index === 2 ? <ImportContactsIcon /> : 
-                   index === 3 ? <InfoIcon /> : 
-                   index === 4 ? <ContactEmergencyIcon /> : 
-                   <HelpIcon />}
+                  {index === 0 ? (
+                    <HomeIcon />
+                  ) : index === 1 ? (
+                    <InventoryIcon />
+                  ) : index === 2 ? (
+                    <ImportContactsIcon />
+                  ) : index === 3 ? (
+                    <InfoIcon />
+                  ) : index === 4 ? (
+                    <ContactEmergencyIcon />
+                  ) : (
+                    <HelpIcon />
+                  )}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
@@ -88,7 +98,18 @@ const Navbar = () => {
         {["Login", "Signup"].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>
-              <ListItemText primary={text} />
+              <ListItemText
+                primary={text}
+                sx={{
+                  background: "#0494b8",
+                  color: "white",
+                  fontSize: "20px",
+                  padding: "10px",
+                  borderRadius: "20px",
+                  textAlign: "center",
+                  fontWeight: "bold",
+                }}
+              />
             </ListItemButton>
           </ListItem>
         ))}
@@ -101,14 +122,19 @@ const Navbar = () => {
       className="bg-gradient-to-r border-b-4 border-[#0494b8] from-purple-900 via-blue-300 to-green-300 text-white"
       style={{
         background: "white",
-        backgroundImage: "linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%)",
+        backgroundImage:
+          "linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%)",
         backgroundBlendMode: "lighten",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0 text-white h-30 sm:h-30">
+          {" "}
+          <div className="flex items-start">
+            <div
+              className="flex-shrink-0 text-white h-30 sm:h-30 hover:cursor-pointer"
+              onClick={() => navigate("/")}
+            >
               <img
                 src={logo}
                 alt="Logo"
@@ -149,7 +175,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/contactus"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+              className="flex gap-1 items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
               <ContactEmergencyIcon />
               Contact Us
@@ -164,23 +190,37 @@ const Navbar = () => {
             </NavLink>
           </div>
           <div className="hidden md:flex space-x-4">
+            {user ? (
+              <NavLink
+                onClick={handleLogout}
+                to="/login"
+                className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+              >
+                Logout
+              </NavLink>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+                >
+                  Login
+                </NavLink>
+                <NavLink
+                  to="/signup"
+                  className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
+                >
+                  Signup
+                </NavLink>
+              </>
+            )}
+
             <NavLink
-              to="/login"
+              to="/cart-item"
               className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
             >
-              Login
-            </NavLink>
-            <NavLink
-              to="/signup"
-              className="flex items-center  hover:text-[#0494b8] hover:bg-white bg-[#0494b8] text-white px-3 py-2 rounded-lg text-lg font-bold"
-            >
-              Signup
-            </NavLink>
-            <NavLink
-              to="#"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
-            >
-              <ShoppingCartIcon size={30} />
+              <ShoppingCartIcon size={20} />
+              <div className="mr-1">:{items.length}</div>
               {/* <span className="ml-1">Cart</span> */}
             </NavLink>
           </div>
