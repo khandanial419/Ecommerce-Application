@@ -24,22 +24,7 @@ const Signup = () => {
           toast.error("Passwords do not match");
           return;
         }
-        try {
-            const response = await fetch('http://127.0.0.1:8000/api/register', {
-                method: 'POST',
-                headers: {
-                    "Access-Control-Allow-Headers" : "Content-Type",
-                    "Access-Control-Allow-Origin": "*",
-                    'Content-Type': 'application/json',
-                    "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PATCH"
-                },
-                body: JSON.stringify({
-                  first_name: "John",
-                  last_name: "Doe",
-                  email: values.email,
-                  password: values.password,
-                }),
-            });
+        
 
     try {
       const response = await axios.post(
@@ -183,4 +168,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signup
