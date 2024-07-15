@@ -49,7 +49,7 @@ const BuyCard = ({ product, hanldeAdd }) => {
             </Chip>
           }
         >
-          {price} THB
+          ${price}
         </Typography>
         <Typography level="body-sm">
           (Only <b>{stock}</b> left in stock!)

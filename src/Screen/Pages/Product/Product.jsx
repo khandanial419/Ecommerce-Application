@@ -100,8 +100,8 @@ export default function Product() {
         <TabsComp
           tabLabel1="Women"
           tabLabel2="Men"
-          tabLabel3="Baby Boy"
-          tabLabel4="Baby Girl"
+          tabLabel3="Tween boy"
+          tabLabel4="Tween Girl"
           contetn1={
             loading ? ( // Render loader if loading is true
               <div className="flex justify-center items-center h-40">

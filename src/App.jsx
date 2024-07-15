@@ -33,6 +33,7 @@ const TermsOfService = React.lazy(() =>
 const ForgotPswrd = React.lazy(() =>
   import("./Screen/Pages/ForgotPswrd/ForgotPswrd")
 );
+const Review = React.lazy(() => import("./Screen/Pages/Review/Review"));
 const VerifyEmail = React.lazy(() => import("./Screen/Pages/Auth/VerifyEmail"));
 const Navbar = React.lazy(() => import("./Screen/Navigations/Navbar/Navbar"));
 const ErrorPage = React.lazy(() => import("./Screen/Pages/Error"));
@@ -61,6 +62,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/reviews" element={<Review />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/verify-email" element={<VerifyEmail />} />
             <Route path="/forgot-password" element={<ForgotPswrd />} />

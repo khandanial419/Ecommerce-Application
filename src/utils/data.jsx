@@ -13,41 +13,33 @@ export const cardsData = [
   {
     title: "Go To Fashion",
     location: "Mens",
-    imageUrl:
-      "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    img2Url:
-      "https://images.unsplash.com/photo-1618886614638-80e3c103d31a?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
+    imageUrl: "/Navy Sport Polo SJP-SP-12 1,426.webp",
+
     Icons: <ManIcon />,
     path: "/men",
   },
   {
     title: "Go To Fashion",
     location: "Womens",
-    imageUrl:
-      "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    img2Url:
-      "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?q=80&w=1944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
+    imageUrl: "/Step Out Dusky Purple Graphic T-Shirt - S22 - 2000.jpg",
+
     Icons: <WomanIcon />,
     path: "/women",
   },
 
   {
     title: "Go To Fashion",
-    location: "Baby Doll",
-    imageUrl:
-      "https://images.unsplash.com/photo-1559659133-8781d8f3b673?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    img2Url:
-      "https://images.unsplash.com/photo-1559659133-8781d8f3b673?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
+    location: "Tween girl",
+    imageUrl: "/Traditional-Mist Stitched 2pc Kids Suit1 2,699.jpg",
+
     Icons: <ChildCareIcon />,
     path: "/baby-doll",
   },
   {
     title: "Go To Fashion",
-    location: "Baby Prince",
-    imageUrl:
-      "https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    img2Url:
-      "https://images.unsplash.com/photo-1522771930-78848d9293e8?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2x",
+    location: "Tween boy",
+    imageUrl: "Boy's Red Shirt - EBTS24-27536 2099.webp",
+
     Icons: <ChildCareIcon />,
     path: "/baby-prince",
   },

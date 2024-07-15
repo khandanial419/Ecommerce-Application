@@ -16,7 +16,7 @@ const JoYCard = ({ imageUrl, title, location, img2Url, Icons, path }) => {
   return (
     <Card
       sx={{
-        minHeight: "600px",
+        minHeight: "900px",
         width: {
           xs: "100%",
           sm: "calc(50% - 16px)",
@@ -32,7 +32,6 @@ const JoYCard = ({ imageUrl, title, location, img2Url, Icons, path }) => {
       <CardCover>
         <img
           src={imageUrl}
-          srcSet={img2Url}
           loading="lazy"
           alt=""
           style={{ width: "100%", height: "100%", objectFit: "cover" }}

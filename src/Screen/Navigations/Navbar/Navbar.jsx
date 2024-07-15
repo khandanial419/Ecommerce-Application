@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { FiMenu } from "react-icons/fi";
@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
+import { MdExpandMore } from "react-icons/md";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
@@ -15,21 +16,37 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import HomeIcon from "@mui/icons-material/Home";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import ImportContactsIcon from "@mui/icons-material/ImportContacts";
+import { MdRateReview } from "react-icons/md";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactEmergencyIcon from "@mui/icons-material/ContactEmergency";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 import HelpIcon from "@mui/icons-material/Help";
+
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   const items = useSelector((state) => state.cart);
+  const dropdownRef = useRef(null);
+
   useEffect(() => {
     const userData = Cookies.get("user");
     if (userData) {
       setUser(JSON.parse(userData));
     }
+
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const handleLogout = () => {
@@ -129,7 +146,6 @@ const Navbar = () => {
     >
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {" "}
           <div className="flex items-start">
             <div
               className="flex-shrink-0 text-white h-30 sm:h-30 hover:cursor-pointer"
@@ -181,13 +197,42 @@ const Navbar = () => {
               Contact Us
             </NavLink>
 
-            <NavLink
-              to="faq"
-              className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
-            >
-              <HelpIcon />
-              <span className="ml-1">FAQ</span>
-            </NavLink>
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                className="flex items-center text-[#0494b8] hover:bg-[#0494b8] hover:text-white px-3 py-2 rounded-md text-lg font-bold"
+              >
+                <div className="flex item-center justify-center">
+                  {" "}
+                  <spann> More</spann>
+                  <span className="mt-[-5]">
+                    <MdExpandMore fontSize={25} />
+                  </span>
+                </div>
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute bg-white shadow-lg rounded-md mt-1 w-[150px]">
+                  <NavLink
+                    to="/faq"
+                    className="block py-2 text-[#0494b8] hover:bg-[#0494b8] hover:text-white text-lg font-bold"
+                  >
+                    <div className="flex items-center px-2 ">
+                      <HelpIcon fontSize="20" />
+                      <span className="ml-1">FAQ</span>
+                    </div>
+                  </NavLink>
+                  <NavLink
+                    to="/reviews"
+                    className="block px-0 py-2 text-[#0494b8] hover:bg-[#0494b8] hover:text-white text-lg font-bold"
+                  >
+                    <div className="flex items-center px-2 ">
+                      <MdRateReview fontSize="20" />
+                      <span className="ml-1">Reviews</span>
+                    </div>
+                  </NavLink>
+                </div>
+              )}
+            </div>
           </div>
           <div className="hidden md:flex space-x-4">
             {user ? (
