@@ -23,7 +23,11 @@ const CustomerReview = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-center text-xl text-gray-700">Loading........</div>
+      </div>
+    );
   }
 
   if (error) {
