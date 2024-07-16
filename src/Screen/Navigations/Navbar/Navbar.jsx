@@ -65,6 +65,17 @@ const Navbar = () => {
     setIsDrawerOpen(open);
   };
 
+  const arrayOfLinks = [
+    "",
+    "product",
+    "blog",
+    "about",
+    "contactus",
+    "faq",
+    "reviews",
+    "review-customer",
+  ];
+
   const drawerList = () => (
     <Box
       sx={{ width: 250 }}
@@ -82,33 +93,46 @@ const Navbar = () => {
       </div>
 
       <List>
-        {["Home", "Products", "Blogs", "About Us", "Contact Us", "FAQ"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton
-                component={NavLink}
-                to={`/${text.replace(/\s+/g, "").toLowerCase()}`}
-              >
-                <ListItemIcon>
-                  {index === 0 ? (
-                    <HomeIcon />
-                  ) : index === 1 ? (
-                    <InventoryIcon />
-                  ) : index === 2 ? (
-                    <ImportContactsIcon />
-                  ) : index === 3 ? (
-                    <InfoIcon />
-                  ) : index === 4 ? (
-                    <ContactEmergencyIcon />
-                  ) : (
-                    <HelpIcon />
-                  )}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          )
-        )}
+        {[
+          "Home",
+          "Products",
+          "Blogs",
+          "About Us",
+          "Contact Us",
+          "FAQ",
+          "Reviews",
+          "Customer Reviews",
+        ].map((text, index) => (
+          <ListItem key={text} disablePadding>
+            <ListItemButton
+              component={NavLink}
+              to={`/${arrayOfLinks[index].replace(/\s+/g, "").toLowerCase()}`}
+            >
+              <ListItemIcon>
+                {index === 0 ? (
+                  <HomeIcon />
+                ) : index === 1 ? (
+                  <InventoryIcon />
+                ) : index === 2 ? (
+                  <ImportContactsIcon />
+                ) : index === 3 ? (
+                  <InfoIcon />
+                ) : index === 4 ? (
+                  <ContactEmergencyIcon />
+                ) : index === 5 ? (
+                  <HelpIcon />
+                ) : index === 6 ? (
+                  <MdRateReview size={30} />
+                ) : index === 7 ? (
+                  <MdRateReview size={30} />
+                ) : (
+                  <HelpIcon />
+                )}
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
       </List>
       <Divider />
       <List>
@@ -211,9 +235,10 @@ const Navbar = () => {
                 </div>
               </button>
               {isDropdownOpen && (
-                <div className="absolute bg-white shadow-lg rounded-md mt-1 w-[150px]">
+                <div className="absolute bg-white shadow-lg rounded-md mt-1 w-[200px]">
                   <NavLink
                     to="/faq"
+                    onClick={() => setIsDropdownOpen(false)}
                     className="block py-2 text-[#0494b8] hover:bg-[#0494b8] hover:text-white text-lg font-bold"
                   >
                     <div className="flex items-center px-2 ">
@@ -223,11 +248,22 @@ const Navbar = () => {
                   </NavLink>
                   <NavLink
                     to="/reviews"
+                    onClick={() => setIsDropdownOpen(false)}
                     className="block px-0 py-2 text-[#0494b8] hover:bg-[#0494b8] hover:text-white text-lg font-bold"
                   >
                     <div className="flex items-center px-2 ">
                       <MdRateReview fontSize="20" />
                       <span className="ml-1">Reviews</span>
+                    </div>
+                  </NavLink>
+                  <NavLink
+                    to="/review-customer"
+                    onClick={() => setIsDropdownOpen(false)}
+                    className="block px-0 py-2 text-[#0494b8] hover:bg-[#0494b8] hover:text-white text-lg font-bold"
+                  >
+                    <div className="flex items-center  px-2 ">
+                      <MdRateReview fontSize="20" />
+                      <span className="ml-1 ">Customer Reviews</span>
                     </div>
                   </NavLink>
                 </div>

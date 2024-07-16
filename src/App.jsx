@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import CustomerReview from "./Screen/Pages/CustomerReview/CustomerReview";
 
 // Lazy-loaded components
 const Footer = React.lazy(() => import("./Screen/Navigations/Footer/Footer"));
@@ -80,6 +81,7 @@ const App = () => {
             <Route path="/baby-prince" element={<BabyPrince />} />
             <Route path="/privacypolicy" element={<PrivacyPolicy />} />
             <Route path="/termsofservices" element={<TermsOfService />} />
+            <Route path="/review-customer" element={<CustomerReview />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </Suspense>
