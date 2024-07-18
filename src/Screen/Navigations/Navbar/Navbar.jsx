@@ -136,6 +136,16 @@ const Navbar = () => {
       </List>
       <Divider />
       <List>
+        <NavLink
+          to="/cart-item"
+          className="flex items-center  px-5 text-gray-500    py-2 rounded-md text-lg font-bold"
+        >
+          <ShoppingCartIcon />
+          <div className="ml-2 ">:{items.length}</div>
+          {/* <span className="ml-1">Cart</span> */}
+        </NavLink>
+      </List>
+      <List>
         {["Login", "Signup"].map((text) => (
           <ListItem key={text} disablePadding>
             <ListItemButton component={NavLink} to={`/${text.toLowerCase()}`}>

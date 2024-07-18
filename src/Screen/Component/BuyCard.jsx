@@ -22,7 +22,14 @@ const BuyCard = ({ product, hanldeAdd }) => {
     }
   };
   return (
-    <Card sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
+    <Card
+      sx={{
+        width: 320,
+        maxWidth: "100%",
+        boxShadow: "lg",
+        borderColor: "#0494b8",
+      }}
+    >
       {/* <CardOverflow>
         <AspectRatio sx={{ minWidth: 200 }}></AspectRatio>
       </CardOverflow> */}
@@ -35,7 +42,6 @@ const BuyCard = ({ product, hanldeAdd }) => {
           color="neutral"
           textColor="text.primary"
           overlay
-          endDecorator={<FavoriteBorderIcon />}
         >
           {name}
         </Link>
