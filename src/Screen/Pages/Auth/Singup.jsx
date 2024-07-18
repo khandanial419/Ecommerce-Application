@@ -25,12 +25,6 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validate(values, confirmPassword);
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
 
     try {
       const response = await axios.post("http://127.0.0.1:8000/api/register", {
@@ -247,4 +241,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Signup
