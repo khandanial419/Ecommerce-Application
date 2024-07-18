@@ -82,7 +82,7 @@ const CustomerReview = () => {
                   Product Details: {review.product_details}
                 </div>
                 <div className="text-sm mb-2">Feedback: {review.review}</div>
-                <div className="text-lg">
+                <div className="text-lg bg-[#0494b8] text-white text-center rounded-lg">
                   {format(new Date(review.updated_at), "PPPp")}
                 </div>
               </div>
