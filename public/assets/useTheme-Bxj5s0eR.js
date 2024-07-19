@@ -1,1 +1,0 @@
-import{r as n}from"./index-DFJ8RUfK.js";import{T as r,j as o}from"./extendSxProp-DYxyISX6.js";function s(e){return Object.keys(e).length===0}function m(e=null){const t=n.useContext(r);return!t||s(t)?e:t}const u=o();function h(e=u){return m(e)}export{h as u};
