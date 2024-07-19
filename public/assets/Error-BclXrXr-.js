@@ -1,0 +1,1 @@
+import{j as e,N as t}from"./index-DFJ8RUfK.js";const r=()=>e.jsx("div",{className:"h-screen w-full bg-white flex items-center justify-center",children:e.jsxs("h1",{className:"text-3xl text-red-500",children:["404 page not found",e.jsx("br",{})," Head back to"," ",e.jsx(t,{to:"/",className:"text-black ml-4 underline",children:"Home"})]})});export{r as default};
