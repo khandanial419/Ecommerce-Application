@@ -245,7 +245,7 @@ const Navbar = () => {
                 </div>
               </button>
               {isDropdownOpen && (
-                <div className="absolute bg-white shadow-lg rounded-md mt-1 w-[200px]">
+                <div className="absolute bg-white shadow-lg rounded-md mt-1 w-[200px] z-[100]">
                   <NavLink
                     to="/faq"
                     onClick={() => setIsDropdownOpen(false)}
