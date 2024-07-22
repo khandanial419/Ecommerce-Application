@@ -240,37 +240,73 @@ export const Menproducts = [
 export const CarisoulData = [
   {
     image: "/men1.jpg",
-    caption: `DHT Whole Sale`,
+    caption: ``,
   },
   {
     image: "/men2.jpg",
-    caption: "DHT Whole Sale",
+    caption: "",
   },
   {
     image: "/men3.jpg",
-    caption: "DHT Whole Sale",
+    caption: "",
   },
   {
     image: "/men4.jpg",
     caption: "San Francisco",
   },
 ];
+export const CarisoulGirlData = [
+  {
+    image: "/boy3.jpg",
+    caption: ``,
+  },
+  {
+    image: "/girl1.jpg",
+    caption: "",
+  },
+  {
+    image: "/girl2.jpg",
+    caption: "",
+  },
+  {
+    image: "/girl4.jpg",
+    caption: "San Francisco",
+  },
+];
+export const CarisoulBoyData = [
+  {
+    image: "/boy3.jpg",
+    caption: ``,
+  },
+  {
+    image: "/boy2.jpg",
+    caption: "",
+  },
+  {
+    image: "/boy4.jpg",
+    caption: "",
+  },
+  {
+    image: "/boy1.jpg",
+    caption: "",
+  },
+];
 export const CarisoulDataWomen = [
   {
     image: "/women1.jpg",
-    caption: `DHT Whole Sale`,
+    caption: ``,
   },
   {
     image: "/women2.jpg",
-    caption: "DHT Whole Sale",
+    caption: "",
   },
   {
     image: "/women3.jpg",
-    caption: "DHT Whole Sale",
+    caption: "",
   },
   {
     image: "/women4.jpg",
-    caption: "San Francisco",
+    caption: "",
   },
 ];
 

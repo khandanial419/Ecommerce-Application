@@ -98,7 +98,7 @@ const Women = () => {
             </div>
           )}
         </center>
-        <div className="mt-10">
+        <div className="mt-20">
           <TabsComp
             tabLabel1={<span className="text-[#0494b8]">Women Products</span>}
             contetn1={
