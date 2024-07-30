@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const VerifyOtp = () => {
   const [otp, setOtp] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== passwordConfirmation) {
@@ -27,6 +28,9 @@ const VerifyOtp = () => {
 
       if (response.data.msg) {
         toast.success(response.data.msg);
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
       } else if (response.data.msgErr) {
         toast.error(response.data.msgErr);
       }

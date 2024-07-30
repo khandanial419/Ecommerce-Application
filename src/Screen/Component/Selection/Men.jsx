@@ -98,7 +98,7 @@ const Men = () => {
             </div>
           )}
         </center>
-        <div className="mt-10">
+        <div className="mt-20">
           <TabsComp
             tabLabel1={
               <div className="flex justify-center items-center">

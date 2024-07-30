@@ -1,33 +1,52 @@
 // src/components/SearchModal.js
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import BuyCard from "../BuyCard";
+import { add } from "../../../Redux/CartSlice"; // Adjust this import according to your project structure
 
 const SearchModal = ({ isOpen, onClose }) => {
   const [inputValue, setInputValue] = useState("");
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const dispatch = useDispatch();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    // Simulate fetching products based on input value
-    setProducts([
-      // Simulate more products
-      {
-        id: 1,
-        name: "Product 1",
-        details: "Details of Product 1",
-        image: "https://via.placeholder.com/150",
-      },
-      {
-        id: 2,
-        name: "Product 2",
-        details: "Details of Product 2",
-        image: "https://via.placeholder.com/150",
-      },
-      // Add more products here if needed
-    ]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await axios.get(
+          "http://127.0.0.1:8000/api/products-list?page_size=10" // Adjust the API URL if needed
+        );
+        console.log("Fetched products:", response.data.data);
+        setProducts(response.data.data);
+        setFilteredProducts(response.data.data); // Initially, show all products
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    if (isOpen) {
+      fetchProducts(); // Fetch products when the modal opens
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (inputValue) {
+      const filtered = products.filter((product) =>
+        product.name.toLowerCase().includes(inputValue.toLowerCase())
+      );
+      setFilteredProducts(filtered);
+    } else {
+      setFilteredProducts(products); // Show all products if input is empty
+    }
+  }, [inputValue, products]);
+
+  const handleAdd = (product) => {
+    dispatch(add(product));
   };
 
   return (
@@ -38,7 +57,7 @@ const SearchModal = ({ isOpen, onClose }) => {
             className="absolute inset-0 bg-black opacity-50"
             onClick={onClose}
           ></div>
-          <div className="bg-white rounded-lg shadow-lg z-10 w-full max-w-lg mx-4 sm:mx-0">
+          <div className="bg-white rounded-lg shadow-lg z-10 w-full max-w-2xl mx-4 sm:mx-0">
             <div className="relative p-4">
               <button
                 className="absolute text-3xl text-[#0494b8] top-0 right-2"
@@ -46,45 +65,35 @@ const SearchModal = ({ isOpen, onClose }) => {
               >
                 &times;
               </button>
-              <form onSubmit={handleFormSubmit} className="mb-4">
-                <div className="mb-4">
-                  <label
-                    htmlFor="search"
-                    className="block text-[#0494b8] text-2xl font-bold"
-                  >
-                    Search Products:
-                  </label>
-                  <input
-                    id="search"
-                    type="text"
-                    value={inputValue}
-                    onChange={handleInputChange}
-                    className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0494b8] focus:border-[#0494b8] sm:text-sm"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="px-4 py-2  text-white rounded-md bg-[#0494b8]"
+              <div className="my-4 flex flex-col justify-center items-center text-center">
+                <label
+                  htmlFor="search"
+                  className="block text-[#0494b8] text-2xl font-bold mb-2"
                 >
-                  Search
-                </button>
-              </form>
+                  Search Products:
+                </label>
+                <input
+                  id="search"
+                  type="text"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                  className="block w-full max-w-xl px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#0494b8] focus:border-[#0494b8] sm:text-sm"
+                />
+              </div>
+
               <div className="overflow-y-auto h-96 hide-scrollbar">
-                <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
-                  {products.map((product) => (
-                    <div
-                      key={product.id}
-                      className="bg-gray-100 p-4 rounded-lg shadow-md"
-                    >
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-32 object-cover rounded-md mb-2"
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 px-10">
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((product, index) => (
+                      <BuyCard
+                        key={index}
+                        product={product}
+                        hanldeAdd={handleAdd}
                       />
-                      <h3 className="text-lg font-semibold">{product.name}</h3>
-                      <p className="text-gray-700">{product.details}</p>
-                    </div>
-                  ))}
+                    ))
+                  ) : (
+                    <p>No products found.</p>
+                  )}
                 </div>
               </div>
             </div>
