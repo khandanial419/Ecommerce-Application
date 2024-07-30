@@ -8,7 +8,7 @@ import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
 import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
-
+import { loadStripe } from "@stripe/stripe-js";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const Cart = () => {
   const handleRemove = (id) => {
     dispatch(remove(id));
   };
-
+  console.log(cartItems);
   const calculatedPrice = cartItems.reduce((totalPrice, item) => {
     const price = parseFloat(item.price);
     if (!isNaN(price)) {
@@ -26,8 +26,35 @@ const Cart = () => {
     }
   }, 0);
 
-  const handlePay = () => {
-    alert("Proceeding to payment");
+  const handlePay = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51P2cGzII2WH8wiPYxIyks2JtYkyutA7xIgL3bdpKxQKnKPpAkO2eXiGilKI3tTMKcX6mEeqny1a1I9REeMLt7c3o00VBQgmoKj"
+    );
+    const body = { products: cartItems };
+
+    try {
+      const response = await fetch(
+        "http://localhost:8000/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const session = await response.json();
+      const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+      if (result.error) {
+        console.error(result.error.message);
+      }
+    } catch (error) {
+      console.error("Error during checkout:", error);
+    }
   };
 
   return (

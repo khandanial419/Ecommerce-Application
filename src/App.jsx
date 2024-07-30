@@ -50,6 +50,8 @@ const VerifyOtp = React.lazy(() =>
   import("./Screen/Pages/ForgotPswrd/Verify-otp")
 );
 const CartItem = React.lazy(() => import("./Screen/Pages/Cart/Cart"));
+const CancelPage = React.lazy(() => import("./Screen/Pages/Cancel/Cancel"));
+const SuccessPage = React.lazy(() => import("./Screen/Pages/Success/Success"));
 
 const App = () => {
   return (
@@ -83,6 +85,8 @@ const App = () => {
             <Route path="/termsofservices" element={<TermsOfService />} />
             <Route path="/review-customer" element={<CustomerReview />} />
             <Route path="*" element={<ErrorPage />} />
+            <Route path="/cancel" element={<CancelPage />} />
+            <Route path="/success" element={<SuccessPage />} />
           </Routes>
         </Suspense>
         <Footer />
