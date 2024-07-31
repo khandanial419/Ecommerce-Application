@@ -6,17 +6,17 @@ import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
 import CardOverflow from "@mui/joy/CardOverflow";
+import Chip from "@mui/joy/Chip";
 import Typography from "@mui/joy/Typography";
 import { loadStripe } from "@stripe/stripe-js";
-
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   const handleRemove = (id) => {
-    // dispatch(remove(id));
+    dispatch(remove(id));
   };
-
+  console.log(cartItems);
   const calculatedPrice = cartItems.reduce((totalPrice, item) => {
     const price = parseFloat(item.price);
     if (!isNaN(price)) {
@@ -27,15 +27,20 @@ const Cart = () => {
   }, 0);
 
   const handlePay = async () => {
-    const stripe = await loadStripe("pk_test_51P2cGzII2WH8wiPYxIyks2JtYkyutA7xIgL3bdpKxQKnKPpAkO2eXiGilKI3tTMKcX6mEeqny1a1I9REeMLt7c3o00VBQgmoKj");
+    const stripe = await loadStripe(
+      "pk_test_51P2cGzII2WH8wiPYxIyks2JtYkyutA7xIgL3bdpKxQKnKPpAkO2eXiGilKI3tTMKcX6mEeqny1a1I9REeMLt7c3o00VBQgmoKj"
+    );
     const body = { products: cartItems };
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/create-checkout-session", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
+      const response = await fetch(
+        "http://localhost:8000/api/create-checkout-session",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -59,7 +64,10 @@ const Cart = () => {
         <div className="w-full max-w-5xl mx-auto px-4 gap-5">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
             {cartItems.map((item, index) => (
-              <Card key={index} sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}>
+              <Card
+                key={index}
+                sx={{ width: 320, maxWidth: "100%", boxShadow: "lg" }}
+              >
                 <AspectRatio ratio="2/3">
                   <img src={item.image_url} loading="lazy" alt={item.name} />
                 </AspectRatio>
@@ -73,7 +81,12 @@ const Cart = () => {
                   </Typography>
                 </CardContent>
                 <CardOverflow>
-                  <Button variant="solid" color="primary" size="lg" onClick={() => handleRemove(item.id)}>
+                  <Button
+                    variant="solid"
+                    color="primary"
+                    size="lg"
+                    onClick={() => handleRemove(item.id)}
+                  >
                     Remove
                   </Button>
                 </CardOverflow>
@@ -81,13 +94,20 @@ const Cart = () => {
             ))}
           </div>
           <div className="w-full flex justify-end mt-10">
-            <Button variant="solid" color="primary" size="lg" onClick={handlePay}>
+            <Button
+              variant="solid"
+              color="primary"
+              size="lg"
+              onClick={handlePay}
+            >
               Pay ${calculatedPrice.toFixed(2)}
             </Button>
           </div>
         </div>
       ) : (
-        <p className="text-xl text-gray-600 mt-8">No products added to the cart.</p>
+        <p className="text-xl text-gray-600 mt-8">
+          No products added to the cart.
+        </p>
       )}
     </div>
   );
